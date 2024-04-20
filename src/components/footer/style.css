@@ -1,0 +1,95 @@
+footer {
+    background-color: var(--wine-red);
+    /* width: 100%; */
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-pink);
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    gap: 10px;
+}
+
+.logo-items {
+    width: 40%;
+    margin-right: 6rem;
+}
+
+.logo-items p {
+   line-height: 1.6rem;
+   margin-top: .5rem;
+} 
+
+.logo-items .social-icon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 7rem;
+} 
+
+.logo-items .social-icon .icon {
+    transform: scale(1);
+} 
+
+.logo-items .social-icon .icon:hover {
+    transform: scale(1.1);
+    transition-property: all;
+    transition-duration: 300ms;
+} 
+
+footer ul {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer ul .footer-li {
+    transform: scale(1);
+}
+
+footer ul .footer-li:hover {
+    transform: scale(1.05);
+    transition-property: all;
+    transition-duration: 300ms;
+}
+
+footer ul a {
+    color: var(--light-pink);
+}
+
+footer ul li:first-child {
+    font-weight: 600;
+}
+
+.subscribe {
+   width: 30%;
+ }
+
+.subscribe p {
+   margin-top: 15px;
+}
+
+.subscribe .title-footer {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.subscribe .subscribe-input {
+    /* border: 2px solid transparent; */
+    background-color: var(--text-pink);
+    border-radius: 5px;
+    display: flex;
+    margin-top: 30px;
+
+}
+
+.subscribe .subscribe-input input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 0 15px;
+}
+

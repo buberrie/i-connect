@@ -1,0 +1,121 @@
+
+/*our mission section */
+.mission {
+    display: flex;
+    gap: 50px;
+    background-color: var(--light-pink);
+    margin-top: 15px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    align-items: center;
+}
+
+.mission-text {
+    background-color: var(--white);
+    color: var(--brown);
+    padding: 40px;
+    border-radius: 10px;
+    width: 45%;
+    height: fit-content;
+    font-weight: 500;
+}
+
+.mission img {
+    border-radius: 10px;
+    width: 55%;
+}
+
+.mission-text h2 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* categories */
+.categories {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    /* margin-top: 50px; */
+    /* margin: 3rem; */
+}
+
+.swiper_container.swiper {
+    width: 95%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 350px;
+    /* background-color: blue; */
+    /* display: flex;
+    gap: 2rem; */
+  }
+  
+  .swiper_container.swiper .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 30%;
+    height: 300px;
+    margin-right: 50px;
+    /* margin-left: 35px; */
+  }
+  
+  .swiper_container .swiper-slide img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .swiper_container .swiper-slide p {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  /* testimonial section */
+  .testimonial {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5rem 0;
+  }
+
+  .testi-card {
+    text-align: center;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px #60391476, -1px 0px 5px #60391476;
+    transform: scale(1);
+    transition-duration: 150ms;
+  } 
+
+  .testi-card:hover {
+    transform: scale(1.05);
+    transition-property: all;
+    transition-duration: 150ms;
+  } 
+
+  .testi-card img {
+    text-align: center;
+    width: 100%;
+    object-fit: cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .testi-card h3 {
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+
+  .testi-card p {
+    padding: 20px;
+    color: var(--brown);
+  }

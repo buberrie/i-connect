@@ -1,0 +1,130 @@
+.dashboard {
+    display: flex;
+    position: relative;
+    height: fit-content;
+    /* border: 1px solid red; */
+}
+
+.sidebar{
+    width: 25%;
+    background-color: var(--light-pink);
+    color: #5A1327;
+    padding: 1rem;
+    position: sticky;
+    top: 5.5rem;
+    height: calc(100vh - 7.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    text-transform: capitalize;
+    overflow: auto;
+}
+
+.sidebar .profile {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .profile .img{
+    /* border: 1px solid red; */
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1.3rem;
+    border-radius: 50%;
+}
+
+.sidebar .profile .img img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.sidebar .sidebar-item {
+    cursor: pointer;
+    transition: all;
+    transition-duration: 150ms;
+    margin-left: 2rem;
+    font-weight: 500;
+    display: flex;
+    /* align-items: center; */
+}
+
+.sidebar .sidebar-item span {
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: all;
+    transition-duration: 300ms;
+    margin-left: 0rem;
+}
+
+.sidebar .sidebar-item span.active {
+    opacity: 1;
+    margin-left: 2rem;
+}
+
+.sidebar .sidebar-item:hover {
+    cursor: pointer;
+    font-weight: 600;
+    
+}
+
+.sidebar .sidebar-item.active{
+    font-weight: 600;
+}
+
+.content{
+    width: 75%;
+    /* padding: 2rem; */
+    min-height: calc(100vh - 6rem);
+    /* background-color: blue; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    text-transform: capitalize;
+    margin: 2rem 0rem;
+    color: var(--brown);
+}
+
+.content-padding {
+    padding: 2rem 3rem;
+    /* overflow: auto; */
+    /* border: 2px solid red; */
+    margin-bottom: 5rem;
+}
+
+.inner-content{
+    opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 0.5s ease, transform 0.5s ease; 
+  /* padding: 3rem;
+  border: 1px solid var(--wine-red);
+  border-radius: 10px; */
+  color: var(--brown);
+  height: fit-content;
+}
+
+.inner-content.visible {
+    opacity: 1; /* Make the element visible */
+    transform: translateY(0); /* Move the element back to its original position */
+  }
+
+.footer-dash {
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    color: var(--brown);
+    border-top: 1px solid var(--brown) ;
+}
+
+.footer-dash span {
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+}

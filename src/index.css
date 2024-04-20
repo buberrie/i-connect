@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* variables */
+:root {
+    /* colors */
+    --brown: #603914;
+    --brownish: #804C1B;
+    --light-brown: #D8C8B8;
+    --wine-red: #961F41;
+    --light-pink: #FFEFF4;
+    --text-pink: #F5E9EC;
+    --white: #FFFFFF;
+    --danger: #ff2424;
+    /*  */
+}  
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Manrope', sans-serif;
+}
+
+/* general padding for all pages */
+.padding-y {
+    padding-right: 4.5rem;
+    padding-left: 4.5rem;
+} 
+
+.overflow::-webkit-scrollbar {
+    display: none;
+}

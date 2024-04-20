@@ -1,0 +1,27 @@
+.container {
+    width: 100%;
+    max-width: 1440px;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    background-color: var(--light-pink);
+    transition: all;
+    transition-duration: 300ms;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image {
+    position: absolute;
+    margin: auto;
+    width: 8rem;
+    height: 8rem;
+    animation: animateImage 1s infinite alternate;
+  }
+
+  @keyframes animateImage {
+    0% { transform: scale(1); }
+    100% { transform: scale(0.7); }
+  }
