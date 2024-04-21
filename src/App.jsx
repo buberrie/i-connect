@@ -18,7 +18,7 @@ import VendorDashboard from "./pages/vendorDashboard/VendorDashboard";
 
 function App() {
   const { setUser } = useUser();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Fetch current user from server and set it
