@@ -18,7 +18,7 @@ import VendorDashboard from "./pages/vendorDashboard/VendorDashboard";
 
 function App() {
   const { setUser } = useUser();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch current user from server and set it
@@ -26,18 +26,17 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Add an event listener for window onload event
-    window.onload = () => {
-      // Delay setting loading state to false by 1000 milliseconds (1 second)
+    const handleLoad = () => {
       setTimeout(() => {
         setLoading(false);
       }, 2000);
     };
-    // Cleanup function to remove the event listener when component unmounts
-    return () => {
-      window.onload = null;
-    };
+  
+    window.addEventListener("load", handleLoad);
+  
+    return () => window.removeEventListener("load", handleLoad);
   }, []);
+  
 
   const getCurrentUser = async () => {
     // Get the token from local storage
