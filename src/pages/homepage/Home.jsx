@@ -24,7 +24,6 @@ const Home = () => {
     <>
         {/* hero section */}
         {(user && user.role.toLowerCase() == "vendor") ? <VendorHero/> : <Hero/> }
-        {!user && <Hero/>}
 
         {/* mission */}
         <section className='mission padding-y'>
