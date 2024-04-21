@@ -27,8 +27,6 @@ const Profile = ({ user }) => {
     availability: "",
   });
 
-  console.log(userData.bio.length);
-
   useEffect(() => {
     if (user) {
       setUserData({
