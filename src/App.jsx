@@ -32,8 +32,7 @@ function App() {
       }, 2000);
     };
   
-    handleLoad()
-    // window.addEventListener("load", handleLoad);
+    window.addEventListener("load", handleLoad);
   
     // return () => window.removeEventListener("load", handleLoad);
   // }, []);
