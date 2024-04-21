@@ -25,7 +25,7 @@ function App() {
     getCurrentUser();
   }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
     const handleLoad = () => {
       setTimeout(() => {
         setLoading(false);
@@ -35,7 +35,7 @@ function App() {
     window.addEventListener("load", handleLoad);
   
     // return () => window.removeEventListener("load", handleLoad);
-  }, []);
+  // }, []);
   
 
   const getCurrentUser = async () => {
