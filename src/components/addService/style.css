@@ -13,13 +13,14 @@
 .add-service-form .input,
 .add-service-form .textarea {
   margin-top: 5px;
-  padding: 0.875rem 1.25rem;
+  padding: 0.85rem 1.15rem;
   border: 2px solid var(--light-brown);
   border-radius: 15px;
-  width: calc(100% - 2.5rem);
-  font-size: 1.2rem;
+  width: calc(100% - 2.3rem);
+  font-size: 1.1rem;
   color: var(--brown);
   font-weight: 500;
+   
 }
 
 .add-service-form .inputPrice {
@@ -37,13 +38,14 @@
 .add-service-form .select {
   border: 2px solid var(--light-brown);
   border-radius: 15px;
-  padding: 14px 20px;
+  padding: 0.875rem 1.15rem;
   font-size: 1.1rem;
   margin-top: 5px;
   display: block;
   width: 100% ;
   color: var(--brown);
   outline: none;
+  transition: all 300ms;
 }
 
 .add-service-form .input:hover,

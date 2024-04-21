@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import './style.css'
 
-const Button = ({ type, text, onClick }) => {
+const Button = ({ type, text, onClick, processing }) => {
     let buttonStyle;
   
     // Determine button style based on the type prop
@@ -45,7 +46,7 @@ const Button = ({ type, text, onClick }) => {
     };
   
     return (
-      <button style={{ ...generalStyle, ...buttonStyle }} onClick={onClick}>
+      <button className={processing && processing !== null ? "disabled" : ''} style={{ ...generalStyle, ...buttonStyle }} onClick={onClick} >
         {text}
       </button>
     );

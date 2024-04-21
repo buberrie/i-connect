@@ -14,11 +14,12 @@ import userProfile from "../../assets/svg/profilepic.svg";
 import ActiveServices from "../../components/activeServices/ActiveServices";
 import Billing from "../../components/billing/Billing";
 import VendorRequests from "../../components/vendorRequests/VendorRequests";
+import Profile from "../../components/profileSettings/Profile";
 
 const VendorDashboard = () => {
   const { user } = useUser();
 
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(1);
 
   // all categories
   const [categories, setCategories] = useState([]);
@@ -100,7 +101,7 @@ const VendorDashboard = () => {
           <div className="profile">
             <div className="img">
               <img
-                src={user?.imageUrl !== "null" ? user?.imageUrl : userProfile}
+                src={user?.imageUrl && user?.imageUrl !== "null" ? user?.imageUrl : userProfile}
                 alt={user?.username}
               />
             </div>
@@ -128,10 +129,11 @@ const VendorDashboard = () => {
                 {active == item.id && <p>{item.name}</p>}
               </h2>
             ))}
-            <div className={`inner-content ${active && active !== 0 ? "visible" : ""}`}>
-              {active && active == 1 && <AddService categories={categories} />}
-              {active && active == 2 && <ActiveServices services={services} />}
-              {active && active == 3 && (
+            <div className={`inner-content ${active && active !== 0  ? "visible" : ""}`}>
+              {active && active == 1 && <Profile user={user} />}
+              {active && active == 2 && <AddService categories={categories} />}
+              {active && active == 3 && <ActiveServices services={services} />}
+              {active && active == 4 && (
                 <VendorRequests
                   user={user}
                   requests={requests}
@@ -139,7 +141,7 @@ const VendorDashboard = () => {
                   users={users}
                 />
               )}
-              {active && active == 7 && <Billing user={user} />}
+              {active && active == 8 && <Billing user={user} />}
             </div>
           </div>
           <footer className="footer-dash">

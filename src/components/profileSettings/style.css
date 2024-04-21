@@ -1,0 +1,77 @@
+.edit-profile-container {
+    padding: 3rem;
+    /* border: 1px solid var(--wine-red); */
+    border-radius: 20px;
+  }
+  
+  .edit-profile-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .edit-profile-form .img-upload {
+    display: flex;
+    /* flex-direction: column; */
+  }
+
+.edit-profile-form .input,
+.edit-profile-form .textarea {
+  margin-top: 5px;
+  padding: 0.875rem 1.15rem;
+  border: 2px solid var(--light-brown);
+  border-radius: 15px;
+  width: calc(100% - 2.3rem);
+  font-size: 1.1rem;
+  color: var(--brown);
+  font-weight: 500;
+  transition: all 300ms;
+}
+
+.edit-profile-form .textarea {
+    height: 7rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+  }
+  
+  .edit-profile-form .input:hover,
+  .edit-profile-form .input:focus,
+  .edit-profile-form .textarea:focus,
+  .edit-profile-form .textarea:hover{
+    border: 2px solid var(--wine-red);
+    outline: none;
+  }
+  
+  .edit-profile-form label {
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    /* border: 1px solid red */
+  }
+  
+  .edit-profile-form input[type="file"] {
+    display: none;
+  }
+
+  .edit-profile-name {
+    /* margin-bottom: 1rem; */
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    text-transform: capitalize;
+  }
+
+  .edit-profile-name label {
+    width: 50%;
+  }
+
+  .edit-profile-name label input {
+    text-transform: capitalize;
+  }
+
+  .edit-profile-form .change-edit {
+    display: grid;
+    margin: 0 auto;
+    gap: 1.5rem;
+    width: fit-content;
+}

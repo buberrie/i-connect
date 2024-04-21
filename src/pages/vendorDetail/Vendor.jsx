@@ -181,10 +181,12 @@ const Vendor = ({ services, provider }) => {
               </div>
             </div>
           </div>
-          <div className="description">
+
+          {providerCurrent.intro && <div className="description">
             <h2>Description</h2>
             <p>{providerCurrent.intro}</p>
-          </div>
+          </div>}
+
         </div>
       </section> 
 

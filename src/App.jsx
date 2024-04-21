@@ -149,9 +149,11 @@ function LayoutWithNavbarAndFooter() {
 
   // Logout logic
   const handleLogout = () => {
-    // Remove the token from local storage
+    // reset local storage
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
+    localStorage.removeItem("activePage");
+
     // Redirect to login page or any other appropriate action
     window.location.href = "/"; // Redirect to login page
   };

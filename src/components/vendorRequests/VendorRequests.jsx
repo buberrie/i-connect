@@ -2,10 +2,13 @@ import axios from "axios";
 import Button from "../button/Button";
 import "./style.css";
 import { useState } from "react";
+import noUser from "../../assets/svg/noUser.svg";
 
 /* eslint-disable react/prop-types */
 const VendorRequests = ({ user, requests, services, users }) => {
   const [activeService, setActiveService] = useState(null);
+
+  const [processing, setProcessing] = useState(null);
 
   function handleActiveService(serviceId) {
     setActiveService((prevActiveService) =>
@@ -61,6 +64,7 @@ const VendorRequests = ({ user, requests, services, users }) => {
   );
 
   const acceptBooking = async (serviceId) => {
+    setProcessing(true);
     try {
       const response = await axios.put(
         `https://i-connect-wj57.onrender.com/api/booking/acceptBooking/${serviceId}`
@@ -76,6 +80,7 @@ const VendorRequests = ({ user, requests, services, users }) => {
   };
 
   const completeBooking = async (serviceId) => {
+    setProcessing(true);
     try {
       const response = await axios.put(
         `https://i-connect-wj57.onrender.com/api/booking/completeBooking/${serviceId}`
@@ -91,6 +96,7 @@ const VendorRequests = ({ user, requests, services, users }) => {
   };
 
   const cancelBooking = async (serviceId) => {
+    setProcessing(true);
     try {
       const response = await axios.put(
         `https://i-connect-wj57.onrender.com/api/booking/cancelBooking/${serviceId}`
@@ -105,7 +111,7 @@ const VendorRequests = ({ user, requests, services, users }) => {
     }
   };
 
-  console.log(bookingsGroupedByServiceId);
+  console.log(bookingsGroupedByVendorId);
   // console.log(bookingsForSeeker);
   // console.log(bookingsForVendor);
 
@@ -131,31 +137,62 @@ const VendorRequests = ({ user, requests, services, users }) => {
                         />
                       </div>
                       <div className="service-detail-text">
-                        <h3>Service Name: {service.subCategory}</h3>
-                        <p>Pricing: &#8358; {service.pricing}</p>
-                        <p>Description: {service.description}</p>
+                        <div className="service-name">
+                          <h3 className="capitalize">{service.subCategory}</h3>
+                          <p className="p">
+                            Pricing:{" "}
+                            <span className="text-bold">
+                              {service.pricing === 0
+                                ? "Negotiable"
+                                : `₦${service.pricing}`}
+                            </span>
+                          </p>
+                          <p>{service.description}</p>
+                        </div>
                         <div className="all-status">
                           <div className="align-length">
                             <p>Pending:</p>
-                            <div className="order-length pending">{serviceBooked.bookings
-                    .filter((order) => order.status.toLowerCase() === "pending").length
-                    }</div>
+                            <div className="order-length pending">
+                              {
+                                serviceBooked.bookings.filter(
+                                  (order) =>
+                                    order.status.toLowerCase() === "pending"
+                                ).length
+                              }
+                            </div>
                           </div>
                           <div className="align-length">
                             <p>In-Progress:</p>
-                            <div className="order-length in-progress">{serviceBooked.bookings
-                    .filter((order) => order.status.toLowerCase() === "in-progress").length
-                    }</div>
+                            <div className="order-length in-progress">
+                              {
+                                serviceBooked.bookings.filter(
+                                  (order) =>
+                                    order.status.toLowerCase() === "in-progress"
+                                ).length
+                              }
+                            </div>
                           </div>
                           <div className="align-length">
                             <p>Completed:</p>
-                            <div className="order-length completed">{serviceBooked.bookings
-                    .filter((order) => order.status.toLowerCase() === "completed").length}</div>
+                            <div className="order-length completed">
+                              {
+                                serviceBooked.bookings.filter(
+                                  (order) =>
+                                    order.status.toLowerCase() === "completed"
+                                ).length
+                              }
+                            </div>
                           </div>
                           <div className="align-length">
                             <p>Cancelled:</p>
-                            <div className="order-length canceled">{serviceBooked.bookings
-                    .filter((order) => order.status.toLowerCase() === "cancelled").length}</div>
+                            <div className="order-length canceled">
+                              {
+                                serviceBooked.bookings.filter(
+                                  (order) =>
+                                    order.status.toLowerCase() === "cancelled"
+                                ).length
+                              }
+                            </div>
                           </div>
                           <Button
                             text={` ${
@@ -178,47 +215,97 @@ const VendorRequests = ({ user, requests, services, users }) => {
                   activeService === serviceBooked.serviceId ? "active" : ""
                 }`}>
                 {/* Fetch and display customer details */}
-                <h2>Intrested Customers</h2>
+                <h3>Interested Customers</h3>
 
-                {/* get all pending order */}
+                {/* all pending order */}
                 <div className="order-request pending">
-                  <h3>Status: Pending</h3>
+                  <div className="order-request-status pending">Pending</div>
                   {serviceBooked.bookings
-                    .filter((order) => order.status.toLowerCase() === "pending")
-                    .map((order) => (
-                      <div key={order._id} className="customer-detail">
+                    .filter((order) => order.status.toLowerCase() == "pending")
+                    .map((order, index) => (
+                      <div
+                        key={order._id}
+                        className={` customer-detail ${
+                          index !== 0 ? "border" : ""
+                        }`}>
                         {/* <h3>Customer ID: {order.customerId}</h3> */}
                         {users?.map(
                           (customer) =>
                             customer._id === order.customerId && (
-                              <div key={customer._id}>
-                                <h4>Customer Contact</h4>
-                                <p>Customer Name: {customer.username}</p>
-                                <p>Customer Email: {customer.email}</p>
+                              <div
+                                key={customer._id}
+                                className="customer-contact-img">
+                                <div className="customer-image">
+                                  <img
+                                    src={
+                                      customer.imageUrl &&
+                                      customer.imageUrl != "null"
+                                        ? customer.imageUrl
+                                        : noUser
+                                    }
+                                    alt={`${customer.username} Image`}
+                                  />
+                                </div>
+                                <div className="customer-contact">
+                                  <p className="capitalize">
+                                    {" "}
+                                    Name:{" "}
+                                    <span className="text-bold">
+                                      {customer.first_Name} {customer.last_Name}{" "}
+                                      <span className="user_name">
+                                        {" "}
+                                        {customer.username}
+                                      </span>
+                                    </span>
+                                  </p>
+                                  {/* <p className="capitalize">Username: <span className="text-bold">{customer.username}</span></p> */}
+                                  <p>
+                                    Phone Number:{" "}
+                                    <span className="text-bold">
+                                      {customer.phone}
+                                    </span>
+                                  </p>
+                                  <p>
+                                    Email Address:{" "}
+                                    <span className="text-bold">
+                                      {customer.email}
+                                    </span>
+                                  </p>
+                                </div>
                               </div>
                             )
                         )}
                         <div className="btn-accept">
-                        <Button
-                          text="Accept"
-                          onClick={() => {
-                            acceptBooking(order._id);
-                          }}
-                        />
-                        <Button
-                          type="danger"
-                          text="Reject"
-                          onClick={() => {
-                            cancelBooking(order._id);
-                          }}
-                        />
+                          <Button
+                            text={` ${
+                              processing === order._id
+                                ? "Processing..."
+                                : "Accept"
+                            } `}
+                            onClick={() => {
+                              acceptBooking(order._id);
+                            }}
+                            processing={processing}
+                          />
+                          <Button
+                            type="danger"
+                            text={` ${
+                              processing === order._id
+                                ? "Processing..."
+                                : "Reject"
+                            } `}
+                            onClick={() => {
+                              cancelBooking(order._id);
+                            }}
+                            processing={processing}
+                          />
                         </div>
                       </div>
                     ))}
                   {serviceBooked.bookings.filter(
-                    (order) => order.status.toLowerCase() === "pending"
+                    (order) => order.status.toLowerCase() == "pending"
                   ).length === 0 && (
-                    <div>
+                    <div className="no-order">
                       <p>You have no pending order/booking</p>
                     </div>
                   )}
@@ -226,10 +313,12 @@ const VendorRequests = ({ user, requests, services, users }) => {
 
                 {/* orders that has been accepted and are in-progress */}
                 <div className="order-request in-progress">
-                  <h3>Status: In-progress</h3>
+                  <div className="order-request-status in-progress">
+                    In-Progress
+                  </div>
                   {serviceBooked.bookings
                     .filter(
-                      (order) => order.status.toLowerCase() === "in-progress"
+                      (order) => order.status.toLowerCase() == "in-progress"
                     )
                     .map((order) => (
                       <div key={order._id} className="customer-detail">
@@ -237,33 +326,84 @@ const VendorRequests = ({ user, requests, services, users }) => {
                         {users?.map(
                           (customer) =>
                             customer._id === order.customerId && (
-                              <div key={customer._id}>
-                                <h4>Customer Contact</h4>
-                                <p>Customer Name: {customer.username}</p>
-                                <p>Customer Email: {customer.email}</p>
+                              <div
+                                key={customer._id}
+                                className="customer-contact-img">
+                                <div className="customer-image">
+                                  <img
+                                    src={
+                                      customer.imageUrl &&
+                                      customer.imageUrl != "null"
+                                        ? customer.imageUrl
+                                        : noUser
+                                    }
+                                    alt={`${customer.username} Image`}
+                                  />
+                                </div>
+                                <div className="customer-contact">
+                                  <p className="capitalize">
+                                    {" "}
+                                    Name:{" "}
+                                    <span className="text-bold">
+                                      {customer.first_Name} {customer.last_Name}{" "}
+                                      <span className="user_name">
+                                        {" "}
+                                        {customer.username}
+                                      </span>
+                                    </span>
+                                  </p>
+                                  {/* <p className="capitalize">Username: <span className="text-bold">{customer.username}</span></p> */}
+                                  <p>
+                                    Phone Number:{" "}
+                                    <span className="text-bold">
+                                      {customer.phone}
+                                    </span>
+                                  </p>
+                                  <p>
+                                    Email Address:{" "}
+                                    <span className="text-bold">
+                                      {customer.email}
+                                    </span>
+                                  </p>
+                                  <p>
+                                    Location:{" "}
+                                    <span className="text-bold">
+                                      {customer.location}
+                                    </span>
+                                  </p>
+                                </div>
                               </div>
                             )
                         )}
-                        <Button
-                          text="Completed"
-                          onClick={() => {
-                            completeBooking(order._id);
-                          }}
-                        />
+                        <div className="btn-accept">
+                          <Button
+                            text={` ${
+                              processing === order._id
+                                ? "Processing..."
+                                : "Completed"
+                            } `}
+                            onClick={() => {
+                              completeBooking(order._id);
+                            }}
+                            processing={processing}
+                          />
+                        </div>
                       </div>
                     ))}
                   {serviceBooked.bookings.filter(
-                    (order) => order.status.toLowerCase() === "in-progress"
+                    (order) => order.status.toLowerCase() == "in-progress"
                   ).length === 0 && (
-                    <div>
-                      <p>You no order/booking in-progress</p>
+                    <div className="no-order">
+                      <p>You have no order/booking in-progress</p>
                     </div>
                   )}
                 </div>
 
+                {/* completed orders */}
                 <div className="order-request completed">
-                  {/* completed orders */}
-                  <h3>Status: Completed</h3>
+                  <div className="order-request-status completed">
+                    Completed
+                  </div>
                   {serviceBooked.bookings
                     .filter(
                       (order) => order.status.toLowerCase() === "completed"
@@ -274,27 +414,65 @@ const VendorRequests = ({ user, requests, services, users }) => {
                         {users?.map(
                           (customer) =>
                             customer._id === order.customerId && (
-                              <div key={customer._id}>
-                                <h4>Customer Contact</h4>
-                                <p>Customer Name: {customer.username}</p>
-                                <p>Customer Email: {customer.email}</p>
+                              <div
+                                key={customer._id}
+                                className="customer-contact-img">
+                                <div className="customer-image">
+                                  <img
+                                    src={
+                                      customer.imageUrl &&
+                                      customer.imageUrl != "null"
+                                        ? customer.imageUrl
+                                        : noUser
+                                    }
+                                    alt={`${customer.username} Image`}
+                                  />
+                                </div>
+                                <div className="customer-contact">
+                                  <p className="capitalize">
+                                    {" "}
+                                    Name:{" "}
+                                    <span className="text-bold">
+                                      {customer.first_Name} {customer.last_Name}{" "}
+                                      <span className="user_name">
+                                        {" "}
+                                        {customer.username}
+                                      </span>
+                                    </span>
+                                  </p>
+                                  {/* <p className="capitalize">Username: <span className="text-bold">{customer.username}</span></p> */}
+                                  <p>
+                                    Phone Number:{" "}
+                                    <span className="text-bold">
+                                      {customer.phone}
+                                    </span>
+                                  </p>
+                                  <p>
+                                    Email Address:{" "}
+                                    <span className="text-bold">
+                                      {customer.email}
+                                    </span>
+                                  </p>
+                                </div>
                               </div>
                             )
                         )}
                       </div>
                     ))}
                   {serviceBooked.bookings.filter(
-                    (order) => order.status.toLowerCase() === "completed"
+                    (order) => order.status.toLowerCase() == "completed"
                   ).length === 0 && (
-                    <div>
-                      <p>You no completed Request</p>
+                    <div className="no-order">
+                      <p>You have no completed Request</p>
                     </div>
                   )}
                 </div>
 
+                {/* cancelled orders */}
                 <div className="order-request cancelled">
-                  {/* completed orders */}
-                  <h3>Status: cancelled</h3>
+                  <div className="order-request-status cancelled">
+                    Cancelled
+                  </div>
                   {serviceBooked.bookings
                     .filter(
                       (order) => order.status.toLowerCase() === "cancelled"
@@ -305,20 +483,55 @@ const VendorRequests = ({ user, requests, services, users }) => {
                         {users?.map(
                           (customer) =>
                             customer._id === order.customerId && (
-                              <div key={customer._id}>
-                                <h4>Customer Contact</h4>
-                                <p>Customer Name: {customer.username}</p>
-                                <p>Customer Email: {customer.email}</p>
+                              <div
+                                key={customer._id}
+                                className="customer-contact-img">
+                                <div className="customer-image">
+                                  <img
+                                    src={
+                                      customer.imageUrl &&
+                                      customer.imageUrl != "null"
+                                        ? customer.imageUrl
+                                        : noUser
+                                    }
+                                    alt={`${customer.username} Image`}
+                                  />
+                                </div>
+                                <div className="customer-contact">
+                                  <p className="capitalize">
+                                    {" "}
+                                    Name:{" "}
+                                    <span className="text-bold">
+                                      {customer.first_Name} {customer.last_Name}{" "}
+                                      <span className="user_name">
+                                        {" "}
+                                        {customer.username}
+                                      </span>
+                                    </span>
+                                  </p>
+                                  {/* <p className="capitalize">Username: <span className="text-bold">{customer.username}</span></p> */}
+                                  <p>
+                                    Phone Number:{" "}
+                                    <span className="text-bold">
+                                      {customer.phone}
+                                    </span>
+                                  </p>
+                                  <p>
+                                    Email Address:{" "}
+                                    <span className="text-bold">
+                                      {customer.email}
+                                    </span>
+                                  </p>
+                                </div>
                               </div>
                             )
                         )}
-                        <p>Status: {order.status}</p>
                       </div>
                     ))}
                   {serviceBooked.bookings.filter(
-                    (order) => order.status.toLowerCase() === "cancelled"
+                    (order) => order.status.toLowerCase() == "cancelled"
                   ).length === 0 && (
-                    <div>
+                    <div className="no-order">
                       <p>You have no cancelled request </p>
                     </div>
                   )}
@@ -331,36 +544,156 @@ const VendorRequests = ({ user, requests, services, users }) => {
       {/* seekers/customer's screen */}
       {user?.role.toLowerCase() === "customer" &&
         bookingsGroupedByVendorId.map((vendorBooked) => (
-          <div key={vendorBooked.serviceId}>
+          <div key={vendorBooked.vendorId} className="service-requested">
             {/* Fetch and display each vendor and services booked from them */}
-            <h2>Vendor Details</h2>
             {users?.map(
-              (customer) =>
-                customer._id === vendorBooked.customerId && (
-                  <div key={customer._id}>
-                    <h4>service details</h4>
-                    <h3>customer Name: {customer.username}</h3>
-                    <p>customer email: {customer.email}</p>
+              (vendor) =>
+                vendor._id === vendorBooked.vendorId && (
+                  <div key={vendor._id} className="service-detail">
+                    <div className="vendor-customer-image">
+                      <img
+                        src={
+                          vendor.imageUrl && vendor.imageUrl != "null"
+                            ? vendor.imageUrl
+                            : noUser
+                        }
+                        alt={`${vendor.username} Image`}
+                      />
+                    </div>
+                    <div className="vendor-detail-text">
+                      <div className="customer-contact">
+                        <p className="capitalize">
+                          {" "}
+                          Name:{" "}
+                          <span className="text-bold">
+                            {vendor.first_Name} {vendor.last_Name}{" "}
+                            <span className="user_name">
+                              {" "}
+                              {vendor.username}
+                            </span>
+                          </span>
+                        </p>
+                        {/* <p className="capitalize">Username: <span className="text-bold">{vendor.username}</span></p> */}
+                        <p>
+                          Phone Number:
+                          <span className="text-bold"> {vendor.phone}</span>
+                        </p>
+                        <p>
+                          Email Address:
+                          <span className="text-bold"> {vendor.email}</span>
+                        </p>
+                        <p>
+                          Location:
+                          <span className="text-bold"> {vendor.location}</span>
+                        </p>
+                      </div>
+
+                      <div className="all-status">
+                        <div className="align-length">
+                          <p>Pending:</p>
+                          <div className="order-length pending">
+                            {
+                              vendorBooked.bookings.filter(
+                                (order) =>
+                                  order.status.toLowerCase() === "pending"
+                              ).length
+                            }
+                          </div>
+                        </div>
+                        <div className="align-length">
+                          <p>In-Progress:</p>
+                          <div className="order-length in-progress">
+                            {
+                              vendorBooked.bookings.filter(
+                                (order) =>
+                                  order.status.toLowerCase() === "in-progress"
+                              ).length
+                            }
+                          </div>
+                        </div>
+                        <div className="align-length">
+                          <p>Completed:</p>
+                          <div className="order-length completed">
+                            {
+                              vendorBooked.bookings.filter(
+                                (order) =>
+                                  order.status.toLowerCase() === "completed"
+                              ).length
+                            }
+                          </div>
+                        </div>
+                        <div className="align-length">
+                          <p>Cancelled:</p>
+                          <div className="order-length canceled">
+                            {
+                              vendorBooked.bookings.filter(
+                                (order) =>
+                                  order.status.toLowerCase() === "cancelled"
+                              ).length
+                            }
+                          </div>
+                        </div>
+                        <Button
+                          text={` ${
+                            activeService === vendorBooked.vendorId
+                              ? "Close"
+                              : "View"
+                          } `}
+                          onClick={() =>
+                            handleActiveService(vendorBooked.vendorId)
+                          }
+                        />
+                      </div>
+                    </div>
                   </div>
                 )
             )}
 
-            {/* Fetch and display customer details */}
-            <h2>Customer Details</h2>
-            {vendorBooked.bookings.map((order) => (
-              <div key={order._id}>
-                {/* <h3>Services ID: {order.customerId}</h3> */}
-                {services?.map(
-                  (service) =>
-                    service._id === order.serviceId && (
-                      <div key={service._id}>
-                        <h3>Service Name: {service.subCategory}</h3>
-                        <p>Description: {service.description}</p>
-                      </div>
-                    )
-                )}
-              </div>
-            ))}
+            <div
+              className={`intrested-customer ${
+                activeService === vendorBooked.vendorId ? "active" : ""
+              }`}>
+              {/* Fetch and display customer details */}
+              <h3>Services From Vendor</h3>
+
+              {vendorBooked.bookings.map((order, index) => (
+                <div key={order._id} className={`service-vendor-detail ${index === 0 ? "first" : "active"}`}>
+                  <div className={`order-request-status ${order.status.toLowerCase()} capitalize vendor-order-status`}>
+                    {order.status}
+                  </div>
+                  {services?.map(
+                    (service) =>
+                      service._id === order.vendorServiceId && (
+                        <div key={service._id} className="service-vendor-detail-img">
+                          <div className="service-detail-img-div">
+                            <img
+                              src={service.imageUrl}
+                              alt={service.subCategory}
+                              className="service-detail-img"
+                            />
+                          </div>
+                          <div className="service-vendor-text">
+                            <div className="service-name">
+                              <h3 className="capitalize">
+                                {service.subCategory}
+                              </h3>
+                              <p className="p">
+                                Pricing:{" "}
+                                <span className="text-bold">
+                                  {service.pricing === 0
+                                    ? "Negotiable"
+                                    : `₦${service.pricing}`}
+                                </span>
+                              </p>
+                              <p>{service.description}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         ))}
     </main>

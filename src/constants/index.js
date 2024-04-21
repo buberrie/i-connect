@@ -169,43 +169,43 @@ export const testimonials = [
 
 export const sidebarItems = [
   {
-    id: 0,
+    id: 1,
     name: "edit profile",
   },
   {
-    id: 1,
+    id: 2,
     name: "add service/product",
   },
   {
-    id: 2,
+    id: 3,
     name: "active services",
   },
   {
-    id: 3,
+    id: 4,
     name: "All Requests",
   },
   {
-    id: 4,
+    id: 5,
     name: "change password",
   },
   {
-    id: 5,
+    id: 6,
     name: "Change availability status",
   },
   {
-    id: 6,
+    id: 7,
     name: "change location",
   },
   {
-    id: 7,
+    id: 8,
     name: "billing",
   },
   {
-    id: 8,
+    id: 9,
     name: "help",
   },
   {
-    id: 9,
+    id: 10,
     name: "delete account",
   },
 ]
