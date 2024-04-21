@@ -73,7 +73,7 @@ function App() {
   return (
     <div className={`body ${loading ? "loader" : ""}`}>
       <Router>
-        {loading && <Loader />}
+        <Loader loading={loading} />
         <Routes>
           <Route path="*" element={<LayoutWithNavbarAndFooter />}></Route>
           <Route path="loginsignup" element={<VendorSignUp />} />

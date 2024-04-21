@@ -1,5 +1,5 @@
 .edit-profile-container {
-    padding: 3rem;
+    padding: 1rem;
     /* border: 1px solid var(--wine-red); */
     border-radius: 20px;
   }
@@ -11,7 +11,33 @@
 
   .edit-profile-form .img-upload {
     display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 1px solid red; */
     /* flex-direction: column; */
+  }
+
+  .img-upload-detail {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .img-display {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    border: 2px solid var(--wine-red);
+  }
+
+  .img-display .img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
   }
 
 .edit-profile-form .input,
@@ -48,6 +74,22 @@
     font-size: 1rem;
     /* border: 1px solid red */
   }
+
+  .edit-profile-form .img-label {
+    /* border: 1px solid red; */
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--wine-red);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .edit-profile-form .img-label > span {
+    text-decoration: underline;
+  }
   
   .edit-profile-form input[type="file"] {
     display: none;
@@ -71,7 +113,7 @@
 
   .edit-profile-form .change-edit {
     display: grid;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     gap: 1.5rem;
     width: fit-content;
 }

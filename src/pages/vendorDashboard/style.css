@@ -36,7 +36,9 @@
 
 .sidebar .profile .img img{
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .sidebar .sidebar-item {

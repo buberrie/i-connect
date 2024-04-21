@@ -141,10 +141,12 @@ const ActiveServices = ({ services }) => {
         setEditId(null); // reset details after successful update
         setIsSubmitting(false);
       } else {
+        alert("oops! Something went wrong please try again later");
         console.log("Error:", response.data.message);
       }
     } catch (error) {
       console.error("Error updating service:", error);
+      alert("An unexpected error occurred. Please try again later.");
       throw error; // Rethrow the error to handle it in the component
     }
   };

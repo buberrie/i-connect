@@ -1,6 +1,7 @@
 .category-slides {
     height: 35rem;
     position: relative;
+    background-color: var(--wine-red);
 }
 
 .category-slides .swiper-slide img {

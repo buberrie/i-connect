@@ -74,13 +74,10 @@ const Vendor = ({ services, provider }) => {
       );
 
       if (response.status === 201) {
-        alert('service booked')
-        // Redirect to home
-        // window.location.href = "/categories";
-
+        alert('Service Booked Successfully!')
+        window.location.reload()
       } else {
-       
-        alert("service booking failed");
+        alert("oops! Service booking failed, please try again later");
       }
     } catch (error) {
       console.error("Error booking:", error.message);

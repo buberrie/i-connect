@@ -62,6 +62,7 @@ const AddService = ({ categories }) => {
         ...prevFormData,
         [e.target.name]: e.target.value,
       }));
+
     // Clear validation for the changed field
     setErrors({ ...errors, [e.target.name]: '' });
     }
@@ -97,8 +98,7 @@ const AddService = ({ categories }) => {
     }
   
     return errors;
-  };
-  
+  }; 
 
   const handleSubmit = async (e, userId) => {
     e.preventDefault();
@@ -121,13 +121,17 @@ const AddService = ({ categories }) => {
       );
 
       if (response.status === 200) {
-        alert("service added");
-        setIsSubmitting(false);
+        alert("Service added successfully!");
+        Window.location.reload()
       } else {
+        alert("oops! Something went wrong please try again later");
+        window.location.reload()
         console.log("error:", response.data.message);
       }
+      setIsSubmitting(false);
     } catch (error) {
       console.error("Error adding service:", error);
+      alert("An unexpected error occurred. Please try again later.");
       throw error; // Rethrow the error to handle it in the component
     }
   };

@@ -2,6 +2,7 @@ import './home.css'
 import missionImg from '../../assets/images/eye-img.png'
 import onboardingImg from '../../assets/images/Onboarding-picture.png'
 import { categoriesHome, testimonials } from '../../constants'
+import Hero from '../../components/hero-section/Hero'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,13 +13,18 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { EffectCoverflow } from 'swiper/modules';
-import Hero from '../../components/hero-section/Hero'
+import { useUser } from '../../context/UserContext'
+import VendorHero from '../../components/vendorHero/VendorHero'
 
 const Home = () => {
+
+    const { user } = useUser();
+
   return (
     <>
         {/* hero section */}
-        <Hero/>
+        {(user && user.role.toLowerCase() == "vendor") ? <VendorHero/> : <Hero/> }
+        {!user && <Hero/>}
 
         {/* mission */}
         <section className='mission padding-y'>

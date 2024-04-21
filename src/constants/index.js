@@ -150,7 +150,7 @@ export const testimonials = [
     imgAlt: "client's photo",
   },
   {
-    id: 1,
+    id: 2,
     name: "faith martins",
     testimony:
     "We are really impressed with the Real Estate value and paying method in Particular.",
@@ -158,7 +158,7 @@ export const testimonials = [
     imgAlt: "client's photo",
   },
   {
-    id: 1,
+    id: 3,
     name: "faith martins",
     testimony:
       "We are really impressed with the Real Estate value and paying method in Particular.",
