@@ -1,0 +1,45 @@
+.vendor-hero {
+    padding-bottom: 4.5rem;
+    padding-top: 2.5rem;
+    text-align: center;
+    background-color: var(--light-pink);
+    color: var(--brown);
+}
+
+.vendor-hero-boost {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.vendor-hero-card {
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    background-color: var(--wine-red);
+    border-radius: 20px;
+    padding: 3.5rem;
+    color: var(--light-pink);
+    text-align: start;
+    font-size: 1.5rem;
+}
+
+.vendor-hero-text{
+    width: 50%;
+}
+
+.vendor-hero-text h2{
+    font-size: 2.6rem;
+    margin: 1rem 0 2rem 0;
+}
+
+.vendor-hero-img {
+    width: 45%;
+}
+
+.vendor-hero-img img {
+    width: 100%;
+    object-fit: contain;
+}
