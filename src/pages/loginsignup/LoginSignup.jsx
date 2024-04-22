@@ -46,13 +46,13 @@ function VendorSignUp() {
       );
 
       if (response.status === 200) {
-        alert("Vendor signed up successfully!");
+        alert("Sign up successful!");
 
         const response = await axios.post(
           "https://i-connect-wj57.onrender.com/api/user/login",
           {
             email: formData.email,
-            password: formData.password
+            password: formData.password,
           },
           {
             headers: {
@@ -74,16 +74,17 @@ function VendorSignUp() {
           // Handle error response from server
           console.error("Login failed:", response.data.message);
           // Display error message to user
-          alert("Login manually.");
+          alert("Signup successful, please login");
 
           // Redirect to login page
-          // window.location.href = '/';
+          window.location.href = "/";
         }
       } else {
         alert("Sign-up failed");
         console.error("Sign-up failed:", response.data.message);
       }
     } catch (error) {
+      alert("An unexpected error occurred. Please try again later.");
       console.error("Error signing up:", error.message);
     }
   };
@@ -112,16 +113,16 @@ function VendorSignUp() {
         window.location.href = "/";
 
         console.log(response.data);
-      } else {
+      } else if (response.status === 401) {
         // Handle error response from server
         console.error("Login failed:", response.data.message);
         // Display error message to user
-        alert("Login failed. Please check your credentials.");
+        alert("Login failed. Email or password is not correct.");
       }
     } catch (error) {
       console.error("Error logging in:", error.message);
       // Display error message to user
-      alert("An unexpected error occurred. Please try again later.");
+      alert("Login failed. Email or password is not correct.");
     }
   };
 
@@ -178,14 +179,23 @@ function VendorSignUp() {
             placeholder="location"
             required
           />
-          <input
+          <select
+            name="role"
+            onChange={handleChange}
+            value={formData.role}
+            id="">
+            <option value="">Sign up as</option>
+            <option value="vendor">Service Provider</option>
+            <option value="customer">Service Seeker</option>
+          </select>
+          {/* <input
             type="text"
             name="role"
             value={formData.role}
             onChange={handleChange}
             placeholder="role"
             required
-          />
+          /> */}
           <input
             type="password"
             name="password"

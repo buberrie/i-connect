@@ -151,7 +151,7 @@ const Billing = ({ user }) => {
             type="email"
             id="email-address"
             value={subDetail.email}
-            className="input"
+            className="input-billing"
             required
             readOnly
           />
@@ -164,7 +164,7 @@ const Billing = ({ user }) => {
             value={subDetail.amount}
             required
             readOnly
-            className="input"
+            className="input-billing"
           />
         </div>
         <div className="form-submit">

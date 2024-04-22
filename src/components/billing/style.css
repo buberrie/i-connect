@@ -174,7 +174,7 @@ input[type="radio"]:checked + .duration {
     font-weight: 500;
 }
 
-.input {
+.input-billing {
     margin-top: 5px;
     padding: 14px 20px;
     border: 2px solid var(--wine-red);
