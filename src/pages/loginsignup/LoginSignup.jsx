@@ -129,7 +129,7 @@ function VendorSignUp() {
   return (
     <div>
       <div>
-        <h2>Vendor Sign-up</h2>
+        <h2>Sign-up</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -207,6 +207,8 @@ function VendorSignUp() {
           <button type="submit">Sign Up</button>
         </form>
       </div>
+      <br/>
+      {/* <br/> */}
       <div>
         <h2>Login</h2>
         <form onSubmit={handleLoginSubmit}>
