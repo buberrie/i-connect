@@ -63,7 +63,7 @@ const Categories = ({categories}) => {
                   <div className="img-container">
                     <img src={detail.imageUrl} alt={detail.description} />
                   </div>
-                  <h3 className="h3">{detail.vendor?.username}</h3>
+                  <div className="name-price"><h3>{detail.vendor?.username}</h3> <p>{detail.pricing == "0" ? "Negotiable" : `₦${detail.pricing}`}</p></div>
                   <p>{detail.description}</p>
                   <div className="detail-btn">
                     <Link to={`/vendor/${detail.vendor?._id}`}>

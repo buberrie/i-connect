@@ -680,7 +680,7 @@ const VendorRequests = ({ user, requests, services, users }) => {
                               <p className="p">
                                 Pricing:{" "}
                                 <span className="text-bold">
-                                  {service.pricing === 0
+                                  {service.pricing == 0
                                     ? "Negotiable"
                                     : `₦${service.pricing}`}
                                 </span>

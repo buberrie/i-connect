@@ -104,9 +104,9 @@ footer ul li:first-child:hover {
 }
 
 .rights-reserved {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     border-top: 1px solid var(--light-pink);
-    margin-top: 0.5rem;
+    margin-top: 1.2rem;
     text-align: center;
 }
 

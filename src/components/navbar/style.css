@@ -211,7 +211,7 @@ nav ul {
     display: flex;
     gap: 1.5rem;
     flex-direction: column;
-    padding: 3.5rem 2.5rem 0 2.5rem;
+    padding: 5rem 2.5rem 0 2.5rem;
     right: 1rem;
     width: calc(68% - 5rem);
     height: 100%;

@@ -79,7 +79,7 @@ function SingleCategory({ categories, getProvider }) {
               <div className="img-container">
                 <img src={provider.imageUrl} alt="business image" />
               </div>
-              <h3>{provider.vendor?.username}</h3>
+              <div className="name-price"><h3>{provider.vendor?.username}</h3> <p>{provider.pricing == "0" ? "Negotiable" : `₦${provider.pricing}`}</p></div>
               <p>{provider.description}</p>
               <div className="detail-btn" onClick={() => getProvider(provider.vendor?._id)}>
                 <Link to={`/vendor/${provider.vendor?._id}`}>

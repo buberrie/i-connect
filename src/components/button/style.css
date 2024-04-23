@@ -29,8 +29,8 @@ button:hover {
 
 @media (max-width: 400px) {
     button {
-        padding: 8px 13px;
+        padding: 7px 12px;
         cursor: pointer;
-        font-size: .875rem;
+        font-size: .775rem;
     }
 }
