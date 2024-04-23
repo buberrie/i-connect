@@ -6,7 +6,7 @@ import vendorImg from "../../assets/images/Allura.png"
 const VendorHero = ({user}) => {
   return (
     <div className="vendor-hero padding-y">
-      <p className="vendor-hero-boost">How are you today {user?.first_Name} ?</p>
+      <h3 className="vendor-hero-boost">How are you today {user?.first_Name} ?</h3>
       <p>Let&apos;s find the perfect match for your skills and expertise.</p>
       <div className="vendor-hero-card">
         <div className="vendor-hero-text">

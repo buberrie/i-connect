@@ -34,7 +34,7 @@ const SearchBar = () => {
   return (
     <div className='search-container'>
         <div className="search">
-            <img src={searchIcon} alt="" />
+            <img src={searchIcon} alt="search" />
             <input type="text" name="search" value={value} onChange={(e) => setValue(e.target.value)} id="" placeholder='What do you need help with?' />
         </div>
         <div className={`dropdown ${value ? 'active' : ''}`} >
@@ -44,11 +44,12 @@ const SearchBar = () => {
 
             return searchTerm && searchCategory.startsWith(searchTerm) && searchCategory !== searchTerm
           }).map((category) => 
-            (<p className='searchTerms' key={category.id} onClick={() => handleSearch(category.id)} >
-              <Link to={`/categories/${category.id}`} className="category">
+            (<Link to={`/categories/${category.id}`} className='searchTerms' key={category.id} onClick={() => handleSearch(category.id)} >
+              <img src={searchIcon} alt="search" className="each-search-bar"/>
+              <p className="category">
                 {category.id}
-              </Link>
-            </p>
+              </p>
+            </Link>
           ))}
         </div>
     </div>

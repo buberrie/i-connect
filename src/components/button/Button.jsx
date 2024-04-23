@@ -36,17 +36,8 @@ const Button = ({ type, text, onClick, processing }) => {
         };
     }
   
-    // General styling
-    const generalStyle = {
-      padding: '12px 24px',
-      border: 'none',
-      borderRadius: '5px',
-      cursor: 'pointer',
-      fontSize: '1rem'
-    };
-  
     return (
-      <button className={processing && processing !== null ? "disabled" : ''} style={{ ...generalStyle, ...buttonStyle }} onClick={onClick} >
+      <button className={processing && processing !== null ? "disabled" : ''} style={{ ...buttonStyle }} onClick={onClick} >
         {text}
       </button>
     );

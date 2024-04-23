@@ -29,7 +29,7 @@ function App() {
     const handleLoad = () => {
       setTimeout(() => {
         setLoading(false);
-      }, 2000);
+      }, 3000);
     };
   
      handleLoad()

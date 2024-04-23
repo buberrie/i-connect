@@ -113,17 +113,31 @@ function VendorSignUp() {
         window.location.href = "/";
 
         console.log(response.data);
-      } else if (response.status === 401) {
-        // Handle error response from server
-        console.error("Login failed:", response.data.message);
-        // Display error message to user
-        alert("Login failed. Email or password is not correct.");
-      }
+      } 
     } catch (error) {
-      console.error("Error logging in:", error.message);
-      // Display error message to user
-      alert("Login failed. Email or password is not correct.");
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        if (error.response.status === 401) {
+          // Handle unauthorized (401) error
+          console.error("Login failed:", error.response.data.message);
+          alert("Login failed. Email or password is not correct.");
+        } else {
+          // Handle other error responses
+          console.error("Error logging in:", error.response.data);
+          alert("Login failed. Please try again later.");
+        }
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response received:", error.request);
+        alert("An unexpected error occurred. Please try again later.");
+      } else {
+        // Something else happened in making the request that triggered an error
+        console.error("Error:", error.message);
+        alert("An error occurred. Please try again later.");
+      }
     }
+    
   };
 
   return (
@@ -208,7 +222,7 @@ function VendorSignUp() {
         </form>
       </div>
       <br/>
-      {/* <br/> */}
+      <br/>
       <div>
         <h2>Login</h2>
         <form onSubmit={handleLoginSubmit}>

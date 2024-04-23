@@ -1,38 +1,62 @@
 .hero {
-    height: 41rem;
-    width: 100%;
-    background: url(../../assets/images/eye-img.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: var(--wine-red);
+  height: 41rem;
+  width: 100%;
+  background: url(../../assets/images/eye-img.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--wine-red);
+  position: relative;
 }
 
 .hero .hero-content {
-    background-color: #00000071;
-    height: 100%;
-    width: 100%;
-    color: var(--light-brown);
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+  background-color: #00000071;
+  height: 100%;
+  width: 100%;
+  color: var(--light-brown);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-text {
-    width: 70%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 70%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid red; */
 }
 
 .hero-text h1 {
-    font-size: 3rem;
-    margin-top: 6rem;
-    margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-top: 6rem;
+  margin-bottom: 1rem;
 }
 
 .hero-text p {
-    width: 90%;
+  width: 90%;
+}
+
+@media (max-width: 650px) {
+  .hero {
+    height: 23rem;
+  }
+
+  .hero-text {
+    width: calc(100% - 3rem);
+    /* padding: 1.5rem; */
+  }
+
+  .hero-text h1 {
+    font-size: 1.7rem;
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-text p {
+    width: 100%;
+    font-size: 0.85rem;
+  }
 }

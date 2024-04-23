@@ -1,22 +1,25 @@
 .search-container {
-    position: relative;
-    width: 80%;
-    /* border: 1px solid red; */
+    position: absolute;
+    top: 7rem;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid var(--light-brown);
+    height: fit-content;
+    border-radius: 10px;
+    background-color: var(--white);
 }
 
 .search {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 0 20px;
-    background-color: var(--white);
-    border: 3px solid var(--light-brown);
+    gap: 1.3rem;
+    padding: 0 1.5rem;
     border-radius: 10px;
-    width: 50%;
+    width: calc(100% - 3rem);
     z-index: 1;
+    border-bottom: 1px solid var(--light-brown);
 }
 
 .search img {
@@ -25,7 +28,7 @@
 
 .search input {
     width: 100%;
-    padding: 20px 0;
+    padding: 1.2rem 0;
     background-color: transparent;
     border: none;
     outline: none;
@@ -39,28 +42,90 @@
 }
 
 .dropdown {
-    background-color: var(--white);
     padding: 0 1rem;
-    width: 50%;
-    position: absolute;
-    top: 4rem;
+    width: calc(100% - 2rem);
+    position: relative;
+    top: 0;
     color: var(--brownish);
     transition: all;
     transition-duration: 300ms;
-    border-radius: 5px;
-    /* background-color: blue; */
+    border-radius: 10px;
+    transition: all 300ms;
 }
 
 .dropdown .searchTerms{
     z-index: 10;
     margin: .5rem 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 300ms;
+    padding: 0.5rem 0.7rem;
+    border-radius: 10px;
     /* background-color: red; */
+}
+
+.dropdown .searchTerms .each-search-bar{
+    width: 0.9rem;
+}
+
+.dropdown .searchTerms:hover{
+    background-color: var(--light-brown);
+    padding: 0.5rem 1rem;
 }
 
 .dropdown .searchTerms .category{
     color: var(--brownish);
 }
+
 .dropdown .searchTerms:hover{
     font-weight: 600;
+}
+
+@media (max-width: 650px) {
+    .search-container {
+        top: 4rem;
+        width: 80%;
+    }
+    
+    .search {
+        gap: 0.75rem;
+        padding: 0 1rem;
+        width: calc(100% - 2rem);
+    }
+    
+    .search img {
+        width: 1rem;
+    }
+    
+    .search input {
+        padding: 0.8rem 0;
+        font-size: 1rem;
+    }
+    
+    .search input::placeholder {
+        font-size: 0.875rem;
+    }
+    
+    .dropdown .searchTerms{
+        font-size: 0.875rem;
+    }
+    
+    .dropdown .searchTerms .each-search-bar{
+        width: 0.8rem;
+    }
+    
+    .dropdown .searchTerms:hover{
+        background-color: var(--light-brown);
+        padding: 0.5rem 1rem;
+    }
+    
+    .dropdown .searchTerms .category{
+        color: var(--brownish);
+    }
+    
+    .dropdown .searchTerms:hover{
+        font-weight: 600;
+    }
 }

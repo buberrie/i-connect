@@ -36,7 +36,7 @@ const Home = () => {
 
         {/* app works */}
         {/* using same class name here becase they have same styling */}
-        <section className='mission padding-y'>
+        <section className='mission mission-mobile padding-y'>
             <img src={onboardingImg} alt="phone image" />
             <div className='mission-text'>
                 <h2>How our app works</h2>
@@ -45,7 +45,7 @@ const Home = () => {
         </section>
 
         {/* category display */}
-        <section className='categories'>
+        <section className='categories padding-y'>
             <Swiper
             effect={'coverflow'}
             grabCursor={true}
@@ -74,6 +74,8 @@ const Home = () => {
 
         {/* testimonial  */}
         <section className='testimonial padding-y'>
+            <h2>Testimonial</h2>
+            <div className="testimonial-div">
             {testimonials.map((item) => (
                 <div key={item.id} className='testi-card'>
                     <img src={item.imgUrl} alt={item.imgAlt} />
@@ -83,6 +85,7 @@ const Home = () => {
                         <p>{item.testimony}</p>
                 </div>
             ))}
+            </div>
         </section>
         
     </>
