@@ -41,7 +41,7 @@
 
 @media (max-width: 650px) {
   .hero {
-    height: 23rem;
+    height: 25rem;
   }
 
   .hero-text {
@@ -51,7 +51,7 @@
 
   .hero-text h1 {
     font-size: 1.7rem;
-    margin-top: 6rem;
+    margin-top: 7rem;
     margin-bottom: 1rem;
   }
 
