@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./style.css";
 import { useNavigate, useParams } from "react-router-dom";
-// import { providers } from "../../constants";
 import star from "../../assets/svg/star.svg";
 import phone from "../../assets/svg/phone.svg";
 import mail from "../../assets/svg/mail.svg";
@@ -201,7 +200,6 @@ const Vendor = ({ services, provider }) => {
                   </div>
                   <div className="item-detail">
                   <div className="name-price"><h3>{item.subCategory}</h3> <p>{item.pricing == "0" ? "Negotiable" : `₦${item.pricing}`}</p></div>
-                    {/* <h4>{item.subCategory}</h4> */}
                     <p>{item.description}</p>
                   </div>
                   <Button
@@ -236,18 +234,18 @@ const Vendor = ({ services, provider }) => {
             You&apos;ve shown interest in one of <b>{providerCurrent.username}&apos;s</b> ads detailed below. We will inform them of your interest in one of their ads and connect you with them to discuss further.
           </p>
 
-          <div className="item">
+          <div className=" item-book">
             <div className="img-tobook">
               <img src={adToBook.imageUrl} alt="item" />
             </div>
             <div className="item-detail">
-              <h4>{adToBook.subCategory}</h4>
-              <p>{adToBook.description}</p>
-            </div>
+              <div className="name-price"><h3>{adToBook.subCategory}</h3> <p>{adToBook.pricing == "0" ? "Negotiable" : `₦${adToBook.pricing}`}</p></div>
+                    <p className="ad-to-book-p">{adToBook.description}</p>
+                  </div>
           </div>
 
           <div>
-            <h3>Below are your contact details please ensure correctness.</h3>
+            <h3 className="book-contact-h3">Below are your contact details please ensure correctness.</h3>
             <div className="book-contact">
               <span>Email Address: </span>
               <b> {user.email ? user.email : 'No email address'}</b>

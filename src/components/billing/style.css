@@ -36,6 +36,10 @@
   justify-content: center;
 }
 
+.boost-inline {
+  white-space: nowrap;
+}
+
 .current-sub {
   display: flex;
   flex-direction: column;
@@ -205,4 +209,117 @@ input[type="radio"]:checked + .duration {
     display: flex;
     align-items: center;
     margin-top: 1rem;
+  }
+
+  @media (max-width: 650px) {
+    .billing-hero {
+      display: flex;
+      padding: 1.2rem;
+      align-items: center;
+      gap: 1.4rem;
+      flex-direction: column;
+    }
+    
+    .billing-intro {
+      width: 100%;
+    }
+    
+    .billing-intro h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .billing-intro .intro-boost {
+      font-size: 0.7rem;
+      line-height: 1.2rem;
+    }
+    
+    .boost-circle {
+      padding: 0.7rem;
+      width: 5rem;
+      height: 2.6rem;
+    }
+    
+    .current-sub {
+      width: calc(100% - 2rem);
+      padding: 1.5rem 1rem;
+      font-size: 0.875rem;
+    }
+    
+    .sub-date {
+      font-size: 0.875rem;
+    }
+    
+    .gain-div {
+      flex-wrap: wrap;
+    }
+    
+    .boost-gain {
+      width: 100%;
+      font-size: 0.875rem;
+    }
+    
+    .boost-gain > h3 {
+      font-size: 1.2rem;
+    }
+    
+    .subscription > h3 {
+      font-size: 1.3rem;
+    }
+    
+    .sub-container {
+      display: flex;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      flex-direction: column-reverse;
+    }
+    
+    .sub-duration {
+      width: auto;
+      font-size: 0.85rem;
+      padding: 1.2rem;
+    }
+    
+    .sub-duration.active {
+      width: auto;
+    }
+    
+    .sub-duration > h3 {
+        text-transform: capitalize;
+        font-size: 1.1rem;
+    }
+    
+    .sub-duration .price {
+        font-size: 2.5rem;
+    }
+    
+    .sub-duration .price-symbol {
+        font-size: 1.3rem;
+    }
+    
+    .sub-duration > span {
+        font-size: 1.1rem;
+    }
+    
+    .input-billing {
+        padding: 9px 14px;
+        width: calc(100% - 3rem);
+        font-size: 1rem;
+    }
+    
+    .form-group {
+        margin-top: 2rem;
+    }
+    
+    .label {
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    #paymentForm > h2 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        margin-bottom: -1rem;
+    }
+    
   }

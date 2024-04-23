@@ -6,18 +6,17 @@ import "./style.css";
 import imgUpload from "../../assets/svg/img-upoad.svg";
 
 const AddService = ({ categories }) => {
-
   const { user } = useUser();
   const [imgUploading, setImgUploading] = useState(false);
   const preset_key = "xdo62zo5";
 
   const [formData, setFormData] = useState({
-    category: '',
-    subCategory: '',
-    description: '',
-    pricing: '',
-    location: '',
-    imageUrl: '',
+    category: "",
+    subCategory: "",
+    description: "",
+    pricing: "",
+    location: "",
+    imageUrl: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -51,7 +50,7 @@ const AddService = ({ categories }) => {
           ...prevFormData,
           imageUrl: imageUrl,
         }));
-        setErrors({ ...errors, imageUrl: '' });
+        setErrors({ ...errors, imageUrl: "" });
 
         setImgUploading(false);
       } catch (error) {
@@ -63,42 +62,49 @@ const AddService = ({ categories }) => {
         [e.target.name]: e.target.value,
       }));
 
-    // Clear validation for the changed field
-    setErrors({ ...errors, [e.target.name]: '' });
+      // Clear validation for the changed field
+      setErrors({ ...errors, [e.target.name]: "" });
     }
   };
 
   const validateForm = (formData) => {
     const errors = {};
-  
-    if (!formData.category.trim() || formData.subCategory.toLowerCase() === 'others') {
-      errors.category = 'Category is required';
+
+    if (
+      !formData.category.trim() ||
+      formData.subCategory.toLowerCase() === "others"
+    ) {
+      errors.category = "Category is required";
     }
-  
+
     if (!formData.subCategory.trim()) {
-      errors.subCategory = 'Subcategory is required';
-    } 
-  
+      errors.subCategory = "Subcategory is required";
+    }
+
     if (!formData.description.trim()) {
-      errors.description = 'Description of your serivice/product is required';
-    } else if (formData.description.length < 70 || formData.description.length > 80) {
-      errors.description = 'Description of your service/product should be between 70 - 80 characters';
+      errors.description = "Description of your serivice/product is required";
+    } else if (
+      formData.description.length < 70 ||
+      formData.description.length > 80
+    ) {
+      errors.description =
+        "Description of your service/product should be between 70 - 80 characters";
     }
-  
+
     if (!formData.pricing.trim()) {
-      errors.pricing = 'Pricing is required';
+      errors.pricing = "Pricing is required";
     }
-  
+
     if (!formData.location.trim()) {
-      errors.location = 'Location is required';
+      errors.location = "Location is required";
     }
-  
+
     if (!formData.imageUrl) {
-      errors.imageUrl = 'An image description of your work is required';
+      errors.imageUrl = "An image description of your work is required";
     }
-  
+
     return errors;
-  }; 
+  };
 
   const handleSubmit = async (e, userId) => {
     e.preventDefault();
@@ -106,9 +112,15 @@ const AddService = ({ categories }) => {
     const newErrors = validateForm(formData); // Validate all fields at once
 
     // Update errors state and prevent submission if there are errors
-    if (Object.keys(newErrors).length > 0) { // Check if there are any errors
+    if (Object.keys(newErrors).length > 0) {
+      // Check if there are any errors
       setErrors(newErrors);
-      alert('Please validate all feilds before you proceed')
+      alert("Please validate all feilds before you proceed");
+
+      setTimeout(() => {
+        window.location.href = "#top";
+      }, 150);
+
       return;
     }
 
@@ -122,10 +134,9 @@ const AddService = ({ categories }) => {
 
       if (response.status === 200) {
         alert("Service added successfully!");
-        Window.location.reload()
+        window.location.replace(window.location.href.split("#")[0]);
       } else {
         alert("oops! Something went wrong please try again later");
-        window.location.reload()
         console.log("error:", response.data.message);
       }
       setIsSubmitting(false);
@@ -141,6 +152,7 @@ const AddService = ({ categories }) => {
 
   return (
     <div className="add-service-container">
+      <div id="top"></div>
       <form
         onSubmit={(e) => handleSubmit(e, user._id)}
         className="add-service-form">
@@ -190,7 +202,7 @@ const AddService = ({ categories }) => {
             placeholder="Enter subcategeory"
             // required
           />
-           <span className={`error ${errors.subCategory ? "active" : ""}`}>
+          <span className={`error ${errors.subCategory ? "active" : ""}`}>
             {errors.subCategory}
           </span>
         </label>
@@ -206,7 +218,7 @@ const AddService = ({ categories }) => {
             placeholder="Tell us more about your service/product"
             // required
           />
-           <span className={`error ${errors.description ? "active" : ""}`}>
+          <span className={`error ${errors.description ? "active" : ""}`}>
             {errors.description}
           </span>
         </label>
@@ -250,7 +262,7 @@ const AddService = ({ categories }) => {
               // required
             />
           )}
-           <span className={`error ${errors.pricing ? "active" : ""}`}>
+          <span className={`error ${errors.pricing ? "active" : ""}`}>
             {errors.pricing}
           </span>
         </label>
@@ -266,7 +278,7 @@ const AddService = ({ categories }) => {
             placeholder="State,Country"
             // required
           />
-           <span className={`error ${errors.location ? "active" : ""}`}>
+          <span className={`error ${errors.location ? "active" : ""}`}>
             {errors.location}
           </span>
         </label>
@@ -302,8 +314,8 @@ const AddService = ({ categories }) => {
         </div>
 
         <button type="submit" className="button">
-              {isSubmitting ? "Processing..." : "Upload Service/Product"}
-          </button>
+          {isSubmitting ? "Processing..." : "Upload Service/Product"}
+        </button>
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./styles.css";
-import Hero from "../../components/hero-section/Hero";
+import star from "../../assets/svg/star.svg";
 import Button from "../../components/button/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -63,7 +63,7 @@ const Categories = ({categories}) => {
                   <div className="img-container">
                     <img src={detail.imageUrl} alt={detail.description} />
                   </div>
-                  <div className="name-price"><h3>{detail.vendor?.username}</h3> <p>{detail.pricing == "0" ? "Negotiable" : `₦${detail.pricing}`}</p></div>
+                  <div className="name-price"><h3>{detail.vendor?.username}</h3><p> {`${index%3 == 0 ? "4.5" : (index%2 == 0 ? "4.7" : "4.3")}`} <img src={star} alt="rating" /></p></div>
                   <p>{detail.description}</p>
                   <div className="detail-btn">
                     <Link to={`/vendor/${detail.vendor?._id}`}>

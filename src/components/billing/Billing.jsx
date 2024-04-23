@@ -82,7 +82,7 @@ const Billing = ({ user }) => {
           </div>
           <div className="current-sub">
             <h3>
-              Current Subscription: <br /> (Free: NGN 0)
+              Current Subscription <span className="boost-inline">(Free: NGN 0)</span>
             </h3>
             <span className="sub-date start">
               {" "}

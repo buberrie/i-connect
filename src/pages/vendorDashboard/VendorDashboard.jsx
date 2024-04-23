@@ -97,7 +97,7 @@ const VendorDashboard = () => {
     <main>
       <NavBar />
       <div className="dashboard">
-        <div className="sidebar overflow">
+        {/* <div className="sidebar overflow">
           <div className="profile">
             <div className="img">
               <img
@@ -121,7 +121,7 @@ const VendorDashboard = () => {
               <span className={ active == item.id ? "active" : ""}>&gt;</span>
             </div>
           ))}
-        </div>
+        </div> */}
         <div className="content">
           <div className="content-padding">
             {sidebarItems.map((item) => (

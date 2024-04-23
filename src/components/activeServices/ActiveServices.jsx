@@ -9,6 +9,8 @@ import imgUpload from "../../assets/svg/img-upoad.svg";
 const ActiveServices = ({ services }) => {
   const { user } = useUser();
 
+  const vendorServices = services.filter((service) => service.vendor?._id === user._id)
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission state
 
@@ -26,25 +28,20 @@ const ActiveServices = ({ services }) => {
 
   const handleEditBtn = async (id) => {
     setEditId(id);
-    try {
-      const response = await axios.get(
-        `https://i-connect-wj57.onrender.com/api/services/${id}`
-      );
-      if (response.data) {
-        const categoryToEdit = response.data;
-
-        setFormData({
-          description: categoryToEdit?.description,
-          pricing: categoryToEdit?.pricing,
-          location: categoryToEdit?.location,
-          imageUrl: categoryToEdit?.imageUrl,
-        });
-        setEditMode(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    
+    const categoryToEdit = vendorServices.filter((service) => service._id === id)[0];
+  
+    setFormData({
+      ...formData,
+      description: categoryToEdit.description,
+      pricing: categoryToEdit.pricing,
+      location: categoryToEdit.location,
+      imageUrl: categoryToEdit.imageUrl,
+    });
+    
+    setEditMode(true);
   };
+  
 
   const validateForm = (formData) => {
     const errors = {};
@@ -140,6 +137,7 @@ const ActiveServices = ({ services }) => {
         setEditMode(false); // Exit edit mode after successful update
         setEditId(null); // reset details after successful update
         setIsSubmitting(false);
+        window.location.replace(window.location.href.split('#')[0]);
       } else {
         alert("oops! Something went wrong please try again later");
         console.log("Error:", response.data.message);
@@ -155,9 +153,7 @@ const ActiveServices = ({ services }) => {
 
   return (
     <div className="providers">
-      {services
-        .filter((service) => service.vendor?._id === user._id)
-        .map(
+      {vendorServices.map(
           (item) =>
             !editMode && (
               <div
@@ -166,9 +162,7 @@ const ActiveServices = ({ services }) => {
                 <div className="img-container">
                   <img src={item.imageUrl} alt="business image" className="active-img"/>
                 </div>
-                <h3>
-                  Price: {item.pricing === 0 ? "Negotiable" : item.pricing}
-                </h3>
+                <div className="name-price-vendor"><h3>{item.subCategory}</h3> <span>{item.pricing == "0" ? "Negotiable" : `₦${item.pricing}`}</span></div>
                 <p>{item.description}</p>
                 <div className="change-btn">
                   <Button
@@ -186,12 +180,14 @@ const ActiveServices = ({ services }) => {
 
       {editMode && (
         <div className={`edit-service-container ${editMode ? "active" : ""}`}>
+            <div id="top"></div>
           <h3>Edit Service/Product</h3>
           <form onSubmit={(e) => handleEdit(e)} className="add-service-form">
             <label htmlFor="">
           Edit Description
           <textarea
             className="textarea overflow"
+            autoFocus="true"
             type="text"
             name="description"
             value={formData.description}

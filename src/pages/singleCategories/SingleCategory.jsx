@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Button from "../../components/button/Button";
 import { useState} from "react";
 import "./style.css";
-
+import star from "../../assets/svg/star.svg";
 import arrow from "../../assets/svg/arrow2.svg";
 import CategoryHero from "../../components/categoryHero/CategoryHero";
 
@@ -79,7 +79,7 @@ function SingleCategory({ categories, getProvider }) {
               <div className="img-container">
                 <img src={provider.imageUrl} alt="business image" />
               </div>
-              <div className="name-price"><h3>{provider.vendor?.username}</h3> <p>{provider.pricing == "0" ? "Negotiable" : `₦${provider.pricing}`}</p></div>
+              <div className="name-price"><h3>{provider.vendor?.username}</h3> <p>{`${index%3 == 0 ? "4.5" : (index%2 == 0 ? "4.3" : "4.7")}`} <img src={star} alt="rating" /></p></div>
               <p>{provider.description}</p>
               <div className="detail-btn" onClick={() => getProvider(provider.vendor?._id)}>
                 <Link to={`/vendor/${provider.vendor?._id}`}>

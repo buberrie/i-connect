@@ -268,6 +268,18 @@
   margin-top: 10px;
 }
 
+.item-detail .ad-to-book-p {
+    padding-top: 1rem;
+  }
+
+  .item-book {
+    width: 25%;
+    background-color: var(--white);
+    padding: 0.8rem;
+    border-radius: 10px;
+    margin: 0.5rem 0;
+  }
+
 .img-tobook > img {
   width: 100%;
 }
@@ -343,7 +355,7 @@
 
   .contact-info > p,
   .contact ul li span {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     gap: 0.5rem;
   }
 
@@ -419,7 +431,6 @@
     display: flex;
     align-items: start;
     justify-content: center;
-    /* border: 1px solid red; */
     flex-direction: column;
     position: relative;
     gap: 1rem;
@@ -456,9 +467,7 @@
 
   .booking {
     color: var(--brownish);
-    /* border: 2px solid var(--wine-red); */
-    padding: 4rem 0;
-    /* border-radius: 15px; */
+    padding: 2rem 0;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -467,19 +476,38 @@
   }
 
   .booking > h3 {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     text-transform: capitalize;
   }
 
   .booking > p {
-    width: 40%;
+    width: 100%;
     text-align: center;
+    font-size: 0.9rem;
   }
 
   .booking .book-contact {
     border: 1px solid var(--wine-red);
-    padding: 1rem;
+    padding: 0.7rem;
     margin-top: 10px;
+    font-size: 0.875rem;
+  }
+
+  .item-book {
+    width: 60%;
+    background-color: var(--white);
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .item-book p {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-contact-h3 {
+    font-size: 0.9rem;
+    text-align: center;
   }
 
   .img-tobook > img {

@@ -173,7 +173,7 @@ const Profile = ({ user }) => {
 
       if (response.status === 200) {
         alert("Profile Updated successfully!");
-        window.location.reload();
+        window.location.replace(window.location.href.split('#')[0]);
       } else {
         alert("oops! Something went wrong please try again later");
         console.error("profile update failed:", response.data.message);
@@ -203,7 +203,7 @@ const Profile = ({ user }) => {
                 <img src={noUser} alt="product image" className="img" />
               )}
             </div>
-            <div>
+            <div className="img-label-div">
               <h3>Profile Image</h3>
               <p>Update your photo and personal details</p>
               <label htmlFor="imageUrl" className="img-label">
