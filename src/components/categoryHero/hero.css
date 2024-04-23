@@ -27,7 +27,7 @@
 
   @media (max-width: 650px) {
     .category-slides {
-      height: 18rem;
+      height: 20rem;
       position: relative;
       background-color: var(--wine-red);
   }
@@ -42,7 +42,7 @@
     }
   
     .hero-category {
-      height: 18rem;
+      height: 20rem;
     }
   
   }

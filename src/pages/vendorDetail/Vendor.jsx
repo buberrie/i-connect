@@ -11,6 +11,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import { useUser } from "../../context/UserContext";
+import noImage from "../../assets/images/noImage.png"
 
 const Vendor = ({ services, provider }) => {
 
@@ -125,7 +126,7 @@ const Vendor = ({ services, provider }) => {
           <div className="personal-details">
             <div className="img">
               <img
-                src={providerCurrent.imageUrl}
+                src={providerCurrent.imageUrl && providerCurrent.imageUrl != "null" ? providerCurrent.imageUrl : noImage}
                 alt={providerCurrent.username}
               />
             </div>
@@ -179,7 +180,7 @@ const Vendor = ({ services, provider }) => {
             </div>
           </div>
 
-          {providerCurrent.intro && <div className="description">
+          {providerCurrent.intro && providerCurrent.intro != "null" && <div className="description">
             <h2>Description</h2>
             <p>{providerCurrent.intro}</p>
           </div>}
@@ -199,7 +200,8 @@ const Vendor = ({ services, provider }) => {
                     <img src={item.imageUrl} alt="item" />
                   </div>
                   <div className="item-detail">
-                    <h4>{item.subCategory}</h4>
+                  <div className="name-price"><h3>{item.subCategory}</h3> <p>{item.pricing == "0" ? "Negotiable" : `₦${item.pricing}`}</p></div>
+                    {/* <h4>{item.subCategory}</h4> */}
                     <p>{item.description}</p>
                   </div>
                   <Button

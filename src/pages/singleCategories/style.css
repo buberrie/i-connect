@@ -1,109 +1,96 @@
 #top {
-    position: absolute;
-    top: -10rem;
-}
-
-.cate-hero {
-    height: 30rem;
-    /* border: 1px solid red; */
-}
-
-.cate-hero img {
-    width: 100%;
-    height: 100%;
-    object-position: center;
-    object-fit: cover;
+  position: absolute;
+  top: -10rem;
 }
 
 .category-name {
-    border: 1px solid var(--light-brown);
-    margin: 1.5rem 0;
-    padding: 1.5rem 0;
-    text-align: center;
-    color: var(--brown);
-    font-size: 4rem;
-    text-transform: capitalize;
+  border: 1px solid var(--light-brown);
+  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--brown);
+  font-size: 4rem;
+  text-transform: capitalize;
 }
 
 .each-cate {
-    margin-bottom: 3rem;
-    position: relative;
+  margin-bottom: 3rem;
+  position: relative;
 }
 
 .each-cate .found {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .6rem 1.2rem 1.8rem 1.2rem;
-    color: var(--brown);
-    font-weight: 500;
-    font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.2rem 1.8rem 1.2rem;
+  color: var(--brownish);
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .each-cate .found p {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .each-cate .found .sort-by {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--brown);
-    cursor: pointer;
-    
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brownish);
+  cursor: pointer;
 }
 
 .each-cate .found .sort-by img {
-    transform: rotate(90deg);
-    transition-property: all;
-    transition-duration: 150ms;
+  transform: rotate(90deg);
+  transition-property: all;
+  transition-duration: 150ms;
 }
 
 .each-cate .found .sort-by img.open {
-    transform: rotate(-90deg);
-    transition-property: all;
-    transition-duration: 150ms;
+  transform: rotate(-90deg);
+  transition-property: all;
+  transition-duration: 150ms;
 }
 
 .ul-sorts {
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 2.5rem;
-    border-radius: 10px;
-    color: var(--brown);
-    position: absolute;
-    right: 3.5rem;
-    top: 2.8rem;
-    box-shadow: 0px 2px 10px #48251634;
-    opacity: 0;
-    transition-property: all;
-    transition-duration: 300ms;
-    pointer-events: none;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 2.5rem;
+  border-radius: 10px;
+  color: var(--brown);
+  position: absolute;
+  right: 3.5rem;
+  top: 2.8rem;
+  box-shadow: 0px 2px 10px #48251634;
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 300ms;
+  pointer-events: none;
 }
 
 .ul-sorts.open {
-    opacity: 1;
-    pointer-events: all;
-    transition-property: all;
-    transition-duration: 300ms;
+  opacity: 1;
+  pointer-events: all;
+  transition-property: all;
+  transition-duration: 300ms;
 }
 
 .ul-sorts li {
-    width: fit-content;
-   padding-bottom: 2px ;
-   font-weight: 500;
-    border-bottom: 1px solid transparent;
-    transition-property: all;
-    transition-duration: 150ms;
+  width: fit-content;
+  padding-bottom: 2px;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition-property: all;
+  transition-duration: 150ms;
 }
 
 .ul-sorts li:hover {
-    cursor: pointer;
-    border-bottom: 1px solid var(--brown);
-    transition-property: all;
-    transition-duration: 150ms;
+  cursor: pointer;
+  border-bottom: 1px solid var(--brown);
+  transition-property: all;
+  transition-duration: 150ms;
 }
 
 /* .each-cate .providers {
@@ -153,158 +140,62 @@
 } */
 
 .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  gap: 2rem;
+  color: var(--brown);
 }
 
 .pagination .direction {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
 }
 
 .pagination .direction.disable {
-    pointer-events: none;
-    cursor: default;
-    opacity: .3;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.3;
 }
 
 .pagination .direction .prev {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 @media (max-width: 650px) {
-    .cate-hero {
-        height: 30rem;
-        /* border: 1px solid red; */
-    }
-    
-    .cate-hero img {
-        width: 100%;
-        height: 100%;
-        object-position: center;
-        object-fit: cover;
-    }
-    
-    .category-name {
-        border: 1px solid var(--light-brown);
-        margin: 1.5rem 0;
-        padding: 1.5rem 0;
-        text-align: center;
-        color: var(--brown);
-        font-size: 4rem;
-        text-transform: capitalize;
-    }
-    
-    .each-cate {
-        margin-bottom: 3rem;
-        position: relative;
-    }
-    
-    .each-cate .found {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: .6rem 1.2rem 1.8rem 1.2rem;
-        color: var(--brown);
-        font-weight: 500;
-        font-size: 1.2rem;
-    }
-    
-    .each-cate .found p {
-        text-transform: capitalize;
-    }
-    
-    .each-cate .found .sort-by {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--brown);
-        cursor: pointer;
-        
-    }
-    
-    .each-cate .found .sort-by img {
-        transform: rotate(90deg);
-        transition-property: all;
-        transition-duration: 150ms;
-    }
-    
-    .each-cate .found .sort-by img.open {
-        transform: rotate(-90deg);
-        transition-property: all;
-        transition-duration: 150ms;
-    }
-    
-    .ul-sorts {
-        background-color: var(--white);
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 2.5rem;
-        border-radius: 10px;
-        color: var(--brown);
-        position: absolute;
-        right: 3.5rem;
-        top: 2.8rem;
-        box-shadow: 0px 2px 10px #48251634;
-        opacity: 0;
-        transition-property: all;
-        transition-duration: 300ms;
-        pointer-events: none;
-    }
-    
-    .ul-sorts.open {
-        opacity: 1;
-        pointer-events: all;
-        transition-property: all;
-        transition-duration: 300ms;
-    }
-    
-    .ul-sorts li {
-        width: fit-content;
-       padding-bottom: 2px ;
-       font-weight: 500;
-        border-bottom: 1px solid transparent;
-        transition-property: all;
-        transition-duration: 150ms;
-    }
-    
-    .ul-sorts li:hover {
-        cursor: pointer;
-        border-bottom: 1px solid var(--brown);
-        transition-property: all;
-        transition-duration: 150ms;
-    }
-    
-    .pagination {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 500;
-        gap: 2rem;
-    }
-    
-    .pagination .direction {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        cursor: pointer;
-    }
-    
-    .pagination .direction.disable {
-        pointer-events: none;
-        cursor: default;
-        opacity: .3;
-    }
-    
-    .pagination .direction .prev {
-        transform: rotate(180deg);
-    }
+  .category-name {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    font-size: 1.7rem;
+  }
+
+  .each-cate .found {
+    padding: 0.6rem 0rem 1.5rem 0rem;
+    font-size: 0.8rem;
+  }
+
+  .each-cate .found .sort-by {
+    gap: 7px;
+  }
+
+  .each-cate .found .sort-by img {
+    width: 0.4rem;
+  }
+
+  .ul-sorts {
+    gap: 1rem;
+    padding: 1.5rem;
+    right: 1rem;
+    top: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  .pagination {
+    font-size: 0.875rem;
+  }
+
 }
