@@ -27,7 +27,22 @@ const Profile = ({ user }) => {
     availability: "",
   });
   
-  const [initialUserData, setInitialUserData] = useState({})
+  const [initialUserData, setInitialUserData] = useState({
+    first_Name: "",
+    last_Name: "",
+    email: "",
+    phone: "",
+    username: "",
+    location: "",
+    role: "",
+    password: "",
+    imageUrl: "",
+    bio: "",
+    availability: "",
+  })
+
+  console.log(userData)
+  console.log(initialUserData)
 
   useEffect(() => {
     if (user) {
@@ -45,12 +60,24 @@ const Profile = ({ user }) => {
         availability: user.availability,
       });
       
-      setInitialUserData({...userData})
+      setInitialUserData({
+        first_Name: user.first_Name,
+        last_Name: user.last_Name,
+        email: user.email,
+        phone: user.phone,
+        username: user.username,
+        location: user.location,
+        role: user.role,
+        password: user.password,
+        imageUrl: user.imageUrl,
+        bio: user.bio,
+        availability: user.availability
+      })
     }
 
   }, [user]);
 
-  console.log(userData);
+  // console.log(userData);
 
   const handleChange = async (e) => {
     if (e.target.name === "imageUrl") {

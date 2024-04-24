@@ -117,7 +117,7 @@
 
 @media (max-width: 650px) {
   .edit-profile-container {
-    padding: 0rem;
+    padding: 1rem 0 0 0;
     /* border: 1px solid var(--wine-red); */
     border-radius: 20px;
   }
@@ -132,7 +132,7 @@
 
   .img-upload-detail {
     gap: 0.8rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     align-items: center;
     width: auto;
   }
