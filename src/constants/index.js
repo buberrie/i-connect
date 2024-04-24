@@ -167,7 +167,7 @@ export const testimonials = [
   },
 ];
 
-export const sidebarItems = [
+export const vendorSidebarItems = [
   {
     id: 1,
     name: "edit profile",
@@ -199,6 +199,37 @@ export const sidebarItems = [
   {
     id: 8,
     name: "billing",
+  },
+  {
+    id: 9,
+    name: "help",
+  },
+  {
+    id: 10,
+    name: "delete account",
+  },
+]
+
+export const customerSidebarItems = [
+  {
+    id: 1,
+    name: "edit profile",
+  },
+  {
+    id: 4,
+    name: "Request History/Staus",
+  },
+  {
+    id: 5,
+    name: "change password",
+  },
+  {
+    id: 6,
+    name: "Change availability status",
+  },
+  {
+    id: 7,
+    name: "change location",
   },
   {
     id: 9,

@@ -1,5 +1,5 @@
 import NavBar from "../../components/navbar/NavBar";
-import { sidebarItems } from "../../constants";
+import { customerSidebarItems, vendorSidebarItems } from "../../constants";
 import "./style.css";
 import { useUser } from "../../context/UserContext";
 import { useEffect, useState } from "react";
@@ -10,16 +10,19 @@ import {
   getAllServicesByCategory,
   getAllUsers,
 } from "../../APIs";
-import userProfile from "../../assets/svg/profilepic.svg";
+import userProfile from "../../assets/svg/noUser.svg";
 import ActiveServices from "../../components/activeServices/ActiveServices";
 import Billing from "../../components/billing/Billing";
 import VendorRequests from "../../components/vendorRequests/VendorRequests";
 import Profile from "../../components/profileSettings/Profile";
+import collapse from "../../assets/svg/collapse.svg"
+import expand from "../../assets/svg/expand.svg"
 
 const VendorDashboard = () => {
   const { user } = useUser();
 
   const [active, setActive] = useState(1);
+  const [showSideBar, setShowSideBar] = useState(false);
 
   // all categories
   const [categories, setCategories] = useState([]);
@@ -97,7 +100,9 @@ const VendorDashboard = () => {
     <main>
       <NavBar />
       <div className="dashboard">
+        <div className={`sidebar-wrapper overflow ${showSideBar ? "show" : ""}`} onClick={() => setShowSideBar(false)}>
         <div className="sidebar overflow">
+        <img src={collapse} alt="collapse" className={`collapse ${showSideBar ? "" : "close"}`}/>
           <div className="profile">
             <div className="img">
               <img
@@ -112,7 +117,17 @@ const VendorDashboard = () => {
               <small>Update and Manage your Account</small>
             </div>
           </div>
-          {sidebarItems.map((item) => (
+          {user?.role == "vendor" && vendorSidebarItems.map((item) => (
+            <div
+              key={item.id}
+              className={`sidebar-item ${active && active == item.id ? "active" : ""}`}
+              onClick={() => handleSidebarItems(item.id)}>
+              <p>{item.name}</p>
+              <span className={ active == item.id ? "active" : ""}>&gt;</span>
+            </div>
+          ))}
+
+          {user?.role == "customer" && customerSidebarItems.map((item) => (
             <div
               key={item.id}
               className={`sidebar-item ${active && active == item.id ? "active" : ""}`}
@@ -122,9 +137,11 @@ const VendorDashboard = () => {
             </div>
           ))}
         </div>
+        </div>
         <div className="content">
+          <img src={expand} className={`expand ${showSideBar ? "close" : ""}`} alt="expand" onClick={() => {setShowSideBar(true)}}/>
           <div className="content-padding">
-            {sidebarItems.map((item) => (
+            {vendorSidebarItems.map((item) => (
               <h2 key={item.id} className="title">
                 {active == item.id && <p>{item.name}</p>}
               </h2>

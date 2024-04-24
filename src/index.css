@@ -56,19 +56,30 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive view */
 @media (max-width: 1300px) {
     html {
-      font-size: 14.5px;
+      font-size: 14px;
     }
 }
 
 @media (max-width: 1150px) {
     html {
-      font-size: 14px;
+      font-size: 13px;
     }
 }
 
 @media (max-width: 1000px) {
     html {
-      font-size: 13px;
+      font-size: 12px;
+    }
+
+    .padding-y {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    } 
+}
+
+@media (max-width: 800px) {
+    html {
+      font-size: 10.5px;
     }
 
     .padding-y {

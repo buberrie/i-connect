@@ -1,7 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../context/UserContext";
 
 function VendorSignUp() {
+
+  const { setUser } = useUser();
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     first_Name: "",
     last_Name: "",
@@ -109,10 +116,39 @@ function VendorSignUp() {
         localStorage.setItem("token", response.data.accessToken);
         localStorage.setItem("userId", response.data._id);
 
-        // Redirect to home
-        window.location.href = "/";
+          // Get the token from local storage
+          const userId = localStorage.getItem("userId");
+      
+          const token = localStorage.getItem("token");
+      
+          // If token is not found, return null or handle as appropriate
+          if (!token) {
+            return null;
+          }
+      
+          try {
+            // Make a request to the server to get the user information
+            const response = await axios.get(
+              `https://i-connect-wj57.onrender.com/api/user/${userId}`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`, // Send the token in the Authorization header
+                },
+              }
+            );
+            // If request is successful, return the user data
+            setUser(response.data);
+          } catch (error) {
+            
+            console.error("Error fetching user:", error.message);
+            return null;
+          }
+
+        // Redirect to previous page
+        navigate(-1);
 
         console.log(response.data);
+        
       } 
     } catch (error) {
       if (error.response) {
@@ -131,10 +167,6 @@ function VendorSignUp() {
         // The request was made but no response was received
         console.error("No response received:", error.request);
         alert("An unexpected error occurred. Please try again later.");
-      } else {
-        // Something else happened in making the request that triggered an error
-        console.error("Error:", error.message);
-        alert("An error occurred. Please try again later.");
       }
     }
     

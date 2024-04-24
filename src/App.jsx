@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/footer/Footer";
@@ -15,6 +16,7 @@ import AddServicesForm from "./pages/vendorSettings/VendorSettings";
 import { getAllServices, getAllServicesByCategory } from "./APIs";
 import Loader from "./components/loader/Loader";
 import VendorDashboard from "./pages/vendorDashboard/VendorDashboard";
+import PrivateRoutes from "./utilities/PrivateRoute";
 
 function App() {
   const { setUser } = useUser();
@@ -32,12 +34,7 @@ function App() {
       }, 3000);
     };
   
-     handleLoad()
-    // window.addEventListener("load", handleLoad);
-  
-    // return () => window.removeEventListener("load", handleLoad);
-  // }, []);
-  
+     handleLoad()  
 
   const getCurrentUser = async () => {
     // Get the token from local storage
@@ -61,10 +58,9 @@ function App() {
         }
       );
       // If request is successful, return the user data
-      // return response.data;
       setUser(response.data);
     } catch (error) {
-      // Handle errors, such as token expiration or server errors
+      
       console.error("Error fetching user:", error.message);
       return null;
     }
@@ -77,7 +73,9 @@ function App() {
         <Routes>
           <Route path="*" element={<LayoutWithNavbarAndFooter />}></Route>
           <Route path="loginsignup" element={<VendorSignUp />} />
+          <Route element={<PrivateRoutes />}>
           <Route path="dashboard" element={<VendorDashboard />} />
+          </Route>
         </Routes>
       </Router>
     </div>

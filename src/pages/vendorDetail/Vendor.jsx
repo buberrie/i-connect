@@ -35,6 +35,13 @@ const Vendor = ({ services, provider }) => {
   const bookingDetail = (serviceId) => {
     if( !user) {
       navigate('/loginsignup'); // Redirect to the '/new-page' path
+      
+      return
+    } 
+
+    if (user._id === vendorId) {
+      alert("Oops! Invalid request. Can't contact self")
+
       return
     }
 

@@ -220,6 +220,9 @@
 .item > .item-detail > p {
   position: relative;
   top: -1.5rem;
+  /* border: 1px solid red; */
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 .other-services {

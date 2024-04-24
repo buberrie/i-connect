@@ -26,6 +26,8 @@ const Profile = ({ user }) => {
     bio: "",
     availability: "",
   });
+  
+  const [initialUserData, setInitialUserData] = useState({})
 
   useEffect(() => {
     if (user) {
@@ -42,7 +44,10 @@ const Profile = ({ user }) => {
         bio: user.bio,
         availability: user.availability,
       });
+      
+      setInitialUserData({...userData})
     }
+
   }, [user]);
 
   console.log(userData);
@@ -242,7 +247,7 @@ const Profile = ({ user }) => {
               <Button
                 text="Revert Changes"
                 type="secondary"
-                onClick={() => setEditMode(false)}
+                onClick={() => {setEditMode(false), setErrors({}), setUserData({...initialUserData})}}
               />
             )}
           </div>
@@ -321,7 +326,7 @@ const Profile = ({ user }) => {
         <label htmlFor="phone">
           Phone
           <input
-            type="tel"
+            type="number"
             id="phone"
             name="phone"
             className="input"

@@ -116,7 +116,7 @@ const VendorRequests = ({ user, requests, services, users }) => {
   // console.log(bookingsForVendor);
 
   return (
-    <main>
+    <main className="request-main">
       <div></div>
 
       <div>
@@ -365,12 +365,12 @@ const VendorRequests = ({ user, requests, services, users }) => {
                                       {customer.email}
                                     </span>
                                   </p>
-                                  <p>
+                                  {/* <p>
                                     Location:{" "}
                                     <span className="text-bold">
                                       {customer.location}
                                     </span>
-                                  </p>
+                                  </p> */}
                                 </div>
                               </div>
                             )
@@ -546,7 +546,7 @@ const VendorRequests = ({ user, requests, services, users }) => {
         bookingsGroupedByVendorId.map((vendorBooked) => (
           <div key={vendorBooked.vendorId} className="service-requested">
             {/* Fetch and display each vendor and services booked from them */}
-            {users?.map(
+            {users && users?.map(
               (vendor) =>
                 vendor._id === vendorBooked.vendorId && (
                   <div key={vendor._id} className="service-detail">
@@ -588,7 +588,7 @@ const VendorRequests = ({ user, requests, services, users }) => {
                         </p>
                       </div>
 
-                      <div className="all-status">
+                      <div className="all-status all-status-customer">
                         <div className="align-length">
                           <p>Pending:</p>
                           <div className="order-length pending">

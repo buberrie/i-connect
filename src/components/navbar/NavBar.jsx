@@ -32,9 +32,9 @@ const NavBar = () => {
         <div className="ham-menu" onClick={() => setShowNav(true)}>
           <img src={menu} alt="nav menu" />
         </div>
-        <a href="/">
+        <Link to="/">
           <img src={Logo} alt="i-connect" />
-        </a>
+        </Link>
         <div className="nav-items" >
           <div className={`ul-wrapper ${showNav ? "active" : ""}`} onClick={() => setShowNav(false)}>
           <ul>
