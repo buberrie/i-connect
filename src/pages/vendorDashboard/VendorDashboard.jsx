@@ -163,7 +163,7 @@ const VendorDashboard = () => {
           </div>
           <footer className="footer-dash">
             <span>
-              Copyright © Service Connect {currentYear}. All Rights Reserved.
+              Copyright © I-Connect {currentYear}. All Rights Reserved.
             </span>
           </footer>
         </div>
