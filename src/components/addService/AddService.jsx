@@ -84,11 +84,11 @@ const AddService = ({ categories }) => {
     if (!formData.description.trim()) {
       errors.description = "Description of your serivice/product is required";
     } else if (
-      formData.description.length < 100 ||
-      formData.description.length > 150
+      formData.description.length < 150 ||
+      formData.description.length > 180
     ) {
       errors.description =
-        "Description of your service/product should be between 100 - 150 characters";
+        "Description of your service/product should be between 150 - 180 characters";
     }
 
     if (!formData.pricing.trim()) {
@@ -105,6 +105,8 @@ const AddService = ({ categories }) => {
 
     return errors;
   };
+
+  console.log(formData.description.length)
 
   const handleSubmit = async (e, userId) => {
     e.preventDefault();
