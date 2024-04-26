@@ -152,9 +152,9 @@ const Profile = ({ user }) => {
 
     if (
       userData.username.trim() &&
-      (userData.bio.length < 150 || userData.bio.length > 200)
+      (userData.bio.length < 200 || userData.bio.length > 250)
     ) {
-      errors.bio = "Your Bio should be between 100 - 150 characters";
+      errors.bio = "Your Bio should be between 200 - 250 characters";
     }
 
     if (!userData.imageUrl || userData.imageUrl == "null") {
