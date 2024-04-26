@@ -84,11 +84,11 @@ const AddService = ({ categories }) => {
     if (!formData.description.trim()) {
       errors.description = "Description of your serivice/product is required";
     } else if (
-      formData.description.length < 70 ||
-      formData.description.length > 80
+      formData.description.length < 100 ||
+      formData.description.length > 150
     ) {
       errors.description =
-        "Description of your service/product should be between 70 - 80 characters";
+        "Description of your service/product should be between 100 - 150 characters";
     }
 
     if (!formData.pricing.trim()) {
