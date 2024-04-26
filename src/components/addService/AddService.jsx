@@ -106,7 +106,7 @@ const AddService = ({ categories }) => {
     return errors;
   };
 
-  console.log(formData.description.length)
+  // console.log(formData.description.length)
 
   const handleSubmit = async (e, userId) => {
     e.preventDefault();
