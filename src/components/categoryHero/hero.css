@@ -1,19 +1,24 @@
 .category-slides {
-    height: 35rem;
+    height: 36rem;
     position: relative;
     background-color: var(--wine-red);
+}
+
+.category-slides .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .category-slides .swiper-slide img {
     display: block;
     width: 100%;
-    /* border-radius: 10px; */
     object-fit: cover;
     object-position: center;
   }
 
   .hero-category {
-    height: 35rem;
+    height: 36rem;
     width: 100%;
     max-width: 1440px;
     z-index: 2;

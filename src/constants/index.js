@@ -11,19 +11,24 @@ import heroBaker2 from "../assets/images/baker-2.jpg"
 import heroBaker3 from "../assets/images/baker-3.jpg"
 import heroBaker4 from "../assets/images/baker-4.jpg"
 import constructor from "../assets/images/constructor.jpg"
-import cosmetics from "../assets/images/cosmetics.jpeg"
 import crochet from "../assets/images/crochet.jpg"
-import fashion1 from "../assets/images/fashion1.avif"
 import fashion2 from "../assets/images/fashion2.jpg"
 import fashion3 from "../assets/images/fashion3.avif"
 import hairstylist1 from "../assets/images/hairstylist-1.jpg"
 import hairstylist2 from "../assets/images/hairstylist-2.jpg"
+import hairstylist3 from "../assets/images/hairstylist3.jpg"
+import hairstylist4 from "../assets/images/hairstylist4.jpg"
 import makeup from "../assets/images/makeup.jpg"
 import makeup2 from "../assets/images/makeup-2.jpg"
 import nail1 from "../assets/images/nail-1.avif"
 import nail2 from "../assets/images/nail-3.jpg"
 import nail3 from "../assets/images/nail-tech.jpg"
+import shoe1 from "../assets/images/shoe1.jpg"
+import shoe2 from "../assets/images/shoe2.jpg"
 import pedicure from "../assets/images/pedicure.avif"
+import bole1 from "../assets/images/bole.jpg"
+import bole2 from "../assets/images/bole2.jpeg"
+import delivery from "../assets/images/delivery.avif"
 
 // categories
 export const categoriesHero = [
@@ -53,15 +58,11 @@ export const categoriesHero = [
   },
   {
     id: 7,
-    imgUrl: cosmetics,
+    imgUrl: shoe1,
   },
   {
     id: 8,
     imgUrl: crochet,
-  },
-  {
-    id: 9,
-    imgUrl: fashion1,
   },
   {
     id: 10,
@@ -102,6 +103,30 @@ export const categoriesHero = [
   {
     id: 19,
     imgUrl: pedicure,
+  },
+  {
+    id: 20,
+    imgUrl: shoe2,
+  },
+  {
+    id: 21,
+    imgUrl: hairstylist3,
+  },
+  {
+    id: 22,
+    imgUrl: hairstylist4,
+  },
+  {
+    id: 23,
+    imgUrl: bole1,
+  },
+  {
+    id: 24,
+    imgUrl: bole2,
+  },
+  {
+    id: 25,
+    imgUrl: delivery,
   },
 
 ];
