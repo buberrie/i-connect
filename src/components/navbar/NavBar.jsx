@@ -54,10 +54,10 @@ const NavBar = () => {
             </li>
             <li>
             {!user && <div className="action-btns-mobile">
-              <Link to="/loginsignup">
+              <Link to="/signup">
                 <Button text="Sign Up" />
               </Link>
-              <Link to="/loginsignup">
+              <Link to="/login">
                 <Button type="secondary" text="Log in" />
               </Link>
             </div>}
@@ -85,10 +85,11 @@ const NavBar = () => {
             </div>
           ) : (
             <div className="action-btns">
-              <Link to="/loginsignup">
+              <Link to="/signup">
                 <Button text="Sign Up" />
               </Link>
-              <Link to="/loginsignup" className="login">
+              {/* <Link to="/loginsignup" className="login"> */}
+              <Link to="/login">
                 <Button type="secondary" text="Log in" />
               </Link>
             </div>

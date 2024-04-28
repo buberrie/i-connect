@@ -7,6 +7,8 @@ import Home from "./pages/homepage/Home";
 import VendorSignUp from "./pages/loginsignup/LoginSignup";
 import Categories from "./pages/categoriesPage/Categories";
 import SingleCategory from "./pages/singleCategories/SingleCategory";
+import LoginForm from "./pages/login/Login"
+import ServiceForm from "./pages/service/service";
 import Vendor from "./pages/vendorDetail/Vendor";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -17,10 +19,11 @@ import { getAllServices, getAllServicesByCategory } from "./APIs";
 import Loader from "./components/loader/Loader";
 import VendorDashboard from "./pages/vendorDashboard/VendorDashboard";
 import PrivateRoutes from "./utilities/PrivateRoute";
+import PrivacyPage from "./pages/privacyPage/Privacy";
 
 function App() {
   const { setUser } = useUser();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Fetch current user from server and set it
@@ -74,6 +77,9 @@ function App() {
           <Route path="*" element={<LayoutWithNavbarAndFooter />}></Route>
           <Route path="loginsignup" element={<VendorSignUp />} />
           <Route element={<PrivateRoutes />}>
+          <Route path="login" element={<LoginForm/>} />
+          <Route path="signup" element={<ServiceForm />} />
+          <Route path="privacypage" element={<PrivacyPage />} /> 
           <Route path="dashboard" element={<VendorDashboard />} />
           </Route>
         </Routes>
@@ -184,6 +190,11 @@ function LayoutWithNavbarAndFooter() {
         <Route path="add-service" element={<AddServicesForm />} />
       </Routes>
       <Footer />
+      {/* <LoginForm/> */}
+      {/* <ServiceForm/> */}
+      {/* <SignupForm/> */}
+      {/* <Signup2Form/> */}
+
     </>
   );
 }
