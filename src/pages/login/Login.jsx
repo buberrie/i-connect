@@ -157,9 +157,9 @@ const LoginPage = () => {
                 name="email"
                 required
               />
-              {isEmailInvalid && (
+{/*               {isEmailInvalid && (
                 <div className="error">Please enter a valid email address</div>
-              )}
+              )} */}
             </label>
 
             <label htmlFor="password" className="login-label">
@@ -174,12 +174,12 @@ const LoginPage = () => {
                 placeholder="Password"
                 required
               />
-              {isPasswordValid && (
+{/*               {isPasswordValid && (
                 <div className="error">
                   Password should be at least 8 characters, 1 uppercase and
                   atleast 1 number
                 </div>
-              )}
+              )} */}
             </label>
 
             <div className="forgot-password">
