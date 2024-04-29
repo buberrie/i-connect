@@ -133,7 +133,7 @@ const LoginPage = () => {
 
   return (
     <div className="Auth1-wrapper">
-      <form className="Auth-form" onSubmit={handleSubmit}>
+      <form className="Auth-form" onSubmit={handleLoginSubmit}>
         <div className="Loginpage-container">
           <div className="Loginpage-header">
             <div className="logo">
