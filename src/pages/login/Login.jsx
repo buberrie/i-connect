@@ -11,6 +11,82 @@ const LoginPage = () => {
     password: "",
   });
 
+    // General login logic
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "https://i-connect-wj57.onrender.com/api/user/login",
+        input,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        // Store the token in local storage or state management
+        localStorage.setItem("token", response.data.accessToken);
+        localStorage.setItem("userId", response.data._id);
+
+          // Get the token from local storage
+          const userId = localStorage.getItem("userId");
+      
+          const token = localStorage.getItem("token");
+      
+          // If token is not found, return null or handle as appropriate
+          if (!token) {
+            return null;
+          }
+      
+          try {
+            // Make a request to the server to get the user information
+            const response = await axios.get(
+              `https://i-connect-wj57.onrender.com/api/user/${userId}`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`, // Send the token in the Authorization header
+                },
+              }
+            );
+            // If request is successful, return the user data
+            setUser(response.data);
+          } catch (error) {
+            
+            console.error("Error fetching user:", error.message);
+            return null;
+          }
+
+        // Redirect to previous page
+        navigate(-1);
+
+        console.log(response.data);
+        
+      } 
+    } catch (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        if (error.response.status === 401) {
+          // Handle unauthorized (401) error
+          console.error("Login failed:", error.response.data.message);
+          alert("Login failed. Email or password is not correct.");
+        } else {
+          // Handle other error responses
+          console.error("Error logging in:", error.response.data);
+          alert("Login failed. Please try again later.");
+        }
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response received:", error.request);
+        alert("An unexpected error occurred. Please try again later.");
+      }
+    }
+    
+  };
+
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
