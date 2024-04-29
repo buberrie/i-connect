@@ -54,7 +54,7 @@ const NavBar = () => {
             </li>
             <li>
             {!user && <div className="action-btns-mobile">
-              <Link to="/signup">
+              <Link to="/loginsignup">
                 <Button text="Sign Up" />
               </Link>
               <Link to="/login">
@@ -85,7 +85,7 @@ const NavBar = () => {
             </div>
           ) : (
             <div className="action-btns">
-              <Link to="/signup">
+              <Link to="/loginsignup">
                 <Button text="Sign Up" />
               </Link>
               <Link to="/login" className="login">
