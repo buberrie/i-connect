@@ -88,7 +88,7 @@ const NavBar = () => {
               <Link to="/signup">
                 <Button text="Sign Up" />
               </Link>
-              <Link to="/signup" className="login">
+              <Link to="/login" className="login">
                 <Button type="secondary" text="Log in" />
               </Link>
             </div>
