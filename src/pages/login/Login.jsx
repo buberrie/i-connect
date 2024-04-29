@@ -187,7 +187,7 @@ const LoginPage = () => {
             </div>
 
             <div className="login-btn-div">
-              <Button text="Login" className="login-btn" type="submit" />
+              <Button text="Login" className="login-btn" />
             </div>
           </div>
 
